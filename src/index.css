@@ -41,7 +41,8 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
-  background: #f15946;
+  /* background: #f15946; */
+  background: #A5CFE1;
 }
 
 
@@ -95,6 +96,11 @@ body {
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+}
+
+
+.sign-up {
+margin-top: 170px;
 }
 
 p.error-message {

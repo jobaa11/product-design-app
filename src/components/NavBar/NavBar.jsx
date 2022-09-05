@@ -14,9 +14,11 @@ export default function NavBar({ user, setUser }) {
         <div className='logo'>Ọja.</div>
         <nav>
           <ul>
-            welcome, ____
-            {/* Welcome, {user.name} MAKE SURE TO ADD TERNARY TO SHOW NAME */}
-            &nbsp; | &nbsp;
+            {user ?
+              <li>
+                welcome, {user.name.trim().replace(/^\w/, (c) => c.toUpperCase())}.
+                &nbsp;| &nbsp;
+              </li> : ''}
             <li className='links'>
               <Link to='/orders'>portfolio</Link>
             </li>
@@ -25,10 +27,11 @@ export default function NavBar({ user, setUser }) {
               <Link to='/orders/new'>about us</Link>
             </li>
             &nbsp; | &nbsp;
+            {user ?
             <li className='links'>
               <Link to='' onClick={handleLogOut}>log out</Link>
-            </li>
             &nbsp; | &nbsp;
+            </li> : '' }
             <li className='btn'>
               <Link to=''>design</Link>
             </li>
