@@ -77,30 +77,40 @@ body {
   overflow-y: scroll;
 }
 
-/* .section-heading {
+.section-heading {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--tan-1);
   color: var(--text-dark);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
-  font-size: 2vmin;
-} */
+  font-size: 2.5vmin;
+}
 
 /* form layout */
 .form-container {
+  position: absolute;
+  width: 50%;
   padding: 3vmin;
+  /* opacity: .88; */
+  margin-left: .5%;
   background-color: var(--tan-1);
+  /* background-color: var(--tan-1); */
   border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
+  border-radius: 1.8vmin;
+  position: absolute;
 }
 
 
 .sign-up {
-margin-top: 170px;
+  border-radius: 1.8vmin;
+  position: relative;
+  margin-right: 50%;
+  margin-top: 320px;
+  width: 51%;
+  opacity: .82;
 }
 
 p.error-message {
@@ -110,6 +120,7 @@ p.error-message {
 
 form {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
   color: var(--text-light);
@@ -141,7 +152,7 @@ a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--tan-4);
+  /* background-color: var(--tan-4); */
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -150,6 +161,12 @@ a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 70%);
+  opacity: 70%;
+  border-radius: 1.8vmin;
+  position: relative;
+  /* width: 51%; */
+
 }
 
 button.btn-sm {
