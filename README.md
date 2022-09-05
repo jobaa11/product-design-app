@@ -1,3 +1,3 @@
-# Fitz - App
+# Ọja - App
 
 The product designer app
