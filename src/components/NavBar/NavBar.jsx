@@ -9,14 +9,32 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
-      <Link to='/orders'>Order History</Link>
-      &nbsp; | &nbsp;
-      <Link to='/orders/new'>New Order</Link>
-      &nbsp; | &nbsp;
-      Welcome, {user.name}
-      &nbsp; | &nbsp;
-      <Link to='' onClick={handleLogOut}>Log Out</Link>
-    </nav>
+    <header>
+      <div className='header-main'>
+        <div className='logo'>Ọja.</div>
+        <nav>
+          <ul>
+            welcome, ____
+            {/* Welcome, {user.name} MAKE SURE TO ADD TERNARY TO SHOW NAME */}
+            &nbsp; | &nbsp;
+            <li className='links'>
+              <Link to='/orders'>portfolio</Link>
+            </li>
+            &nbsp; | &nbsp;
+            <li className='links'>
+              <Link to='/orders/new'>about us</Link>
+            </li>
+            &nbsp; | &nbsp;
+            <li className='links'>
+              <Link to='' onClick={handleLogOut}>log out</Link>
+            </li>
+            &nbsp; | &nbsp;
+            <li className='btn'>
+              <Link to=''>design</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 }

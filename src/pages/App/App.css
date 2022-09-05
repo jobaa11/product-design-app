@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+/* 
 html,
 body,
 #root {
@@ -8,16 +6,8 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-animation-timing-smoothing: grayscale;
-  background: #f15946;
-  transition: 0.4s ease-in-out;
-}
+ 
+} */
 
 .App {
   text-align: center;
@@ -47,6 +37,7 @@ body {
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
