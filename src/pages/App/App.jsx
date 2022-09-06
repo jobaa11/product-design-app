@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { getUser } from '../../utilities/users-service';
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, softShadows, useGLTF } from '@react-three/drei';
 import NavBar from '../../components/NavBar/NavBar';
@@ -15,13 +15,27 @@ softShadows();
 
 const Box = () => {
   const mesh = useRef(null);
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.015));
   return (
     <Section factor={1.5}>
       <mesh castShadow ref={mesh}>
         <boxBufferGeometry attach='geometry' arg={[1, 1, 1]} />
         <meshStandardMaterial attach='material' color='lightpink' transparent />
       </mesh>
+    </Section>
+  )
+}
+function Model(props) {
+  const mesh = useRef(null);
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.006));
+  const { nodes, materials } = useGLTF('/scene.gltf')
+  return (
+    <Section factor={1.5}>
+      <group {...props} dispose={null} ref={mesh}>
+        <mesh position={[0, 0, 8]} castShadow ref={mesh} geometry={nodes.Model_material0_0.geometry} material={materials.material0} >
+          <meshStandardMaterial attach='material' color='lightpink' transparent />
+        </mesh>
+      </group>
     </Section>
   )
 }
@@ -43,7 +57,11 @@ export default function App() {
         :
         <AuthPage setUser={setUser} />
       }
-      <Canvas shadows className='canvas' colorManagement camaera={{ position: [-5, 2, 10], fov: 70 }}>
+      <Canvas shadows
+        className='canvas'
+        colorManagement
+        camaera={{ position: [-5, 2, 10], fov: 70 }}>
+          <Suspense fallback={null}>
         <ambientLight intensity={0.9} />
         <directionalLight
           castShadow
@@ -68,8 +86,10 @@ export default function App() {
             <shadowMaterial attach='material' opacity={.3} />
           </mesh>
         </group>
-        <Box />
+        {/* <Box /> */}
+        <Model className='models'/>
         <OrbitControls />
+        </Suspense>
       </Canvas >
     </div>
   );
