@@ -13,18 +13,18 @@ import { Section } from '../Sections/Sections';
 
 softShadows();
 
-const Box = () => {
-  const mesh = useRef(null);
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.015));
-  return (
-    <Section factor={1.5}>
-      <mesh castShadow ref={mesh}>
-        <boxBufferGeometry attach='geometry' arg={[1, 1, 1]} />
-        <meshStandardMaterial attach='material' color='lightpink' transparent />
-      </mesh>
-    </Section>
-  )
-}
+// const Box = () => {
+//   const mesh = useRef(null);
+//   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.015));
+//   return (
+//     <Section factor={1.5}>
+//       <mesh castShadow ref={mesh}>
+//         <boxBufferGeometry attach='geometry' arg={[1, 1, 1]} />
+//         <meshStandardMaterial attach='material' color='lightpink' transparent />
+//       </mesh>
+//     </Section>
+//   )
+// }
 function Model(props) {
   const mesh = useRef(null);
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.006));
