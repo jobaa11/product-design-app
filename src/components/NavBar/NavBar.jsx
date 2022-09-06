@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
                 &nbsp;| &nbsp;
               </li> : ''}
             <li className='links'>
-              <Link to='/orders'>portfolio</Link>
+              <Link to='/models/portfolio'>portfolio</Link>
             </li>
             &nbsp; | &nbsp;
             <li className='links'>
@@ -33,7 +33,7 @@ export default function NavBar({ user, setUser }) {
             &nbsp; | &nbsp;
             </li> : '' }
             <li className='btn'>
-              <Link to=''>design</Link>
+              <Link to='/models/new'>design</Link>
             </li>
           </ul>
         </nav>

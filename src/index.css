@@ -162,7 +162,8 @@ input {
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: rgba(0, 0, 0, .7)
+  /* border-color: var(--orange); */
 }
 
 button,

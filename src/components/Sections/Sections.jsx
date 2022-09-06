@@ -3,7 +3,6 @@ import React from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { lerp } from "three/src/math/MathUtils";
 import state from '../state'
-// import { Stars } from "drei";
 
 
 
