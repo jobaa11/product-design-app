@@ -22,7 +22,7 @@
 }
 
 html,
-root,
+#root,
 body {
   height: 100%;
   width: 100%;
@@ -41,9 +41,21 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+  display: flex;
   /* background: #f15946; */
   background: #A5CFE1;
 }
+
+.canvas {
+  margin-left: 240px;
+  height: 1000px
+  /* position: relative; */
+}
+
+section {
+  height: 350px;
+}
+
 
 
 
@@ -76,6 +88,7 @@ body {
 .scroll-y {
   overflow-y: scroll;
 }
+
 
 .section-heading {
   display: flex;
