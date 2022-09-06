@@ -51,7 +51,7 @@ body {
 .canvas {
   display: flex;
   margin-left: 29%;
-  height: 1000px
+  height: 100%
     /* position: relative; */
 }
 
@@ -163,7 +163,7 @@ input {
 
 input:focus {
   border-color: rgba(0, 0, 0, .7)
-  /* border-color: var(--orange); */
+    /* border-color: var(--orange); */
 }
 
 button,
@@ -215,7 +215,7 @@ header {
   z-index: 99;
   width: 100%;
   padding: 0 30px;
- 
+
 }
 
 .header-main {
@@ -243,6 +243,7 @@ nav>ul {
 
 nav>ul>li {
   list-style: none;
+
 }
 
 nav>ul>.btn>a {
@@ -262,4 +263,46 @@ nav>ul>li>a {
 nav>ul>li>a:hover,
 nav>ul>li>a:active {
   text-decoration: underline;
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  padding: 70px;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+  box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
+  padding: 33px;
+
+  background-color: #A5CFE2;
+}
+
+.product-canvas {
+  width: 270px;
+  height: 270px;
+  background: white;
+  box-shadow: 10px 15px 15px 6px #3891b4;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.colors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px;
+
+}
+
+.colors>div>input {
+  width: 70px;
+  height: 100%;
+  border-radius: 12px;
+  color: white;
 }

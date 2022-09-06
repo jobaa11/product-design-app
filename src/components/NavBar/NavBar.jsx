@@ -24,7 +24,7 @@ export default function NavBar({ user, setUser }) {
             </li>
             &nbsp; | &nbsp;
             <li className='links'>
-              <Link to='/orders/new'>about us</Link>
+              <Link to='/about'>about us</Link>
             </li>
             &nbsp; | &nbsp;
             {user ?
