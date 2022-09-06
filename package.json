@@ -21,7 +21,6 @@
     "react-scripts": "^5.0.1",
     "react-spring": "^9.5.2",
     "serve-favicon": "^2.5.0",
-    "three": "^0.144.0",
     "use-cannon": "^0.5.3",
     "web-vitals": "^2.1.4"
   },
