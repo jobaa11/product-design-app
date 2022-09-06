@@ -1,8 +1,8 @@
 import { useRef, createContext, useContext } from "react";
 import React from "react";
-// import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { lerp } from "three/src/math/MathUtils";
-import * as state from '../state'
+import state from '../state'
 // import { Stars } from "drei";
 
 
@@ -13,7 +13,7 @@ function Section({ children, offset, factor, ...props }) {
   const { offset: parentOffset, sectionHeight, aspect } = useSection();
   const ref = useRef();
   offset = offset !== undefined ? offset : parentOffset;
-  useFrame((state) => {
+  useFrame(() => {
     const curY = ref.current.position.y;
     const curTop = state.top.current / aspect;
     ref.current.position.y = lerp(curY, (curTop / state.zoom) * factor, 0.1);

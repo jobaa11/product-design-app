@@ -1,34 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
-import { useRef } from 'react';
 import './App.css';
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, softShadows } from '@react-three/drei';
-import NavBar from '../../components/NavBar/NavBar';
-// import { Section } from '../Sections/Sections';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { getUser } from '../../utilities/users-service';
+import { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls, softShadows, useGLTF } from '@react-three/drei';
+import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
-// import { softShadows } from '@react-three/drei';
+import { Section } from '../Sections/Sections';
 
 softShadows();
-
 
 const Box = () => {
   const mesh = useRef(null);
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
   return (
-    <mesh castShadow ref={mesh}>
-      <boxBufferGeometry attach='geometry' arg={[1, 1, 1]} />
-      <meshStandardMaterial attach='material' color='lightpink' transparent/>
-    </mesh>
+    <Section factor={1.5}>
+      <mesh castShadow ref={mesh}>
+        <boxBufferGeometry attach='geometry' arg={[1, 1, 1]} />
+        <meshStandardMaterial attach='material' color='lightpink' transparent />
+      </mesh>
+    </Section>
   )
 }
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-
 
   return (
     <div id="root" className='App'>
@@ -45,8 +44,6 @@ export default function App() {
         <AuthPage setUser={setUser} />
       }
       <Canvas shadows className='canvas' colorManagement camaera={{ position: [-5, 2, 10], fov: 70 }}>
-        <OrbitControls />
-        {/* <Stars /> */}
         <ambientLight intensity={0.9} />
         <directionalLight
           castShadow
@@ -68,25 +65,12 @@ export default function App() {
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -3, 0]}>
             <planeBufferGeometry attach='geometry' args={[100, 100]} />
-            <shadowMaterial attach='material' opacity={.3}/>
+            <shadowMaterial attach='material' opacity={.3} />
           </mesh>
         </group>
         <Box />
+        <OrbitControls />
       </Canvas >
     </div>
   );
 }
-
-          // <main className="App">
-            // {user ?
-            //   <>
-            //     <Routes>
-            //       {/* Route components in here */}
-            //       <Route path='/orders/new' element={<NewOrderPage />} />
-            //       <Route path='/orders' element={<OrderHistoryPage />} />
-            //     </Routes>
-            //   </>
-            //   :
-            //   <AuthPage setUser={setUser} />
-            // }
-          // </main>
