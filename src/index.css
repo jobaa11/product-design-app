@@ -351,3 +351,8 @@ nav>ul>li>a:active {
 .create-model-btn {
   background-color: rgba(0, 0, 0, 70%);
 }
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+}

@@ -11,6 +11,6 @@ const modelSchema = new Schema({
     sole: String
 }, {
     timestamps: true
-})
+});
 
 module.exports = mongoose.model('Model', modelSchema);
