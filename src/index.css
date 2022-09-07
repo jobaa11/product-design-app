@@ -265,13 +265,16 @@ nav>ul>li>a:active {
   text-decoration: underline;
 }
 
-
-.wrapper {
+.new-model {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
   justify-content: space-around;
   color: white;
-  padding: 70px;
+  padding: 120px;
 }
 
 .card {

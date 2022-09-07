@@ -1,5 +1,4 @@
 import { useRef, createContext, useContext } from "react";
-import React from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { lerp } from "three/src/math/MathUtils";
 import state from '../state'
