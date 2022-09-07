@@ -26,7 +26,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   transition: 0.4s ease-in-out;
 }
@@ -59,6 +59,22 @@ body {
 
 section {
   height: 80px;
+}
+
+select {
+  margin: 1vmin;
+  padding: .7vmin;
+  width: 80%;
+  color: var(--white);
+  font-size: 2vmin;
+  text-decoration: none;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 70%);
+  opacity: 70%;
+  position: relative;
 }
 
 
@@ -146,8 +162,10 @@ form {
 
 label {
   font-size: 2vmin;
+  margin-top: 2px;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  font-family: ;
 }
 
 input {
@@ -161,6 +179,18 @@ input {
   outline: none;
 }
 
+textarea {
+  padding: 1vmin;
+  font-size: 2vmin;
+  border: .1vmin solid var(--tan-3);
+  border-radius: .5vmin;
+  color: var(--text-dark);
+  background-image: none !important;
+  /* prevent lastpass */
+  outline: none;
+
+}
+
 input:focus {
   border-color: rgba(0, 0, 0, .7)
     /* border-color: var(--orange); */
@@ -171,7 +201,6 @@ a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  /* background-color: var(--tan-4); */
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -184,8 +213,6 @@ a.button {
   opacity: 70%;
   border-radius: 1.8vmin;
   position: relative;
-  /* width: 51%; */
-
 }
 
 button.btn-sm {
@@ -267,8 +294,11 @@ nav>ul>li>a:active {
 
 .new-model {
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .wrapper {
@@ -308,4 +338,16 @@ nav>ul>li>a:active {
   height: 100%;
   border-radius: 12px;
   color: white;
+}
+
+#description {
+  margin-top: 12px;
+}
+
+#name {
+  margin-top: 12px;
+}
+
+.create-model-btn {
+  background-color: rgba(0, 0, 0, 70%);
 }

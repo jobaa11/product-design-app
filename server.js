@@ -21,19 +21,23 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(require('./config/checkToken'));
 
-const port = process.env.PORT ||  3001;
+const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/models', require('./routes/api/models'));
+
+const ensureLoggedIn = require('./config/ensureLoggedIn')
+app.use('/api/models', ensureLoggedIn, require('./routes/api/models'));
+
+
 
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Express app running on port ${port}`);
 });

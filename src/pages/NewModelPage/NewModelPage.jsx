@@ -1,26 +1,43 @@
-import Scene from "../Scene/Scene";
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Shoe from "../../components/Shoe/Shoe";
+import Jacket from '../../components/Jacket/Jacket'
+import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
-import { OrbitControls } from "@react-three/drei";
-import { useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import * as modelsApi from '../../utilities/models-api'
 
 export default function NewModelPage(props) {
-  const [mesh, setMesh] = useState('#ffffff')
-  const [stripes, setStripes] = useState('#C78f8f')
-  const [sole, setSole] = useState('#A5CFE1')
-  const { nodes } = useGLTF('/jacket/jacket.gltf')
+  const [modelData, setModelData] = useState({
+    mesh: '#ffffff',
+    stripes: '#C78f8f',
+    sole: '#A5CFE1',
+    name: '',
+    product: '/shoe/shoe.gltf',
+    description: ''
+  });
 
 
-function handleSubmit() {
-
-}
+  const handleChange = (evt) => {
+    setModelData({ ...modelData, [evt.target.name]: evt.target.value })
+  }
+  const handleSubmit = async (evt) => {
+    try {
+      evt.preventDefault();
+      let model = await modelsApi.newModel(modelData)
+      setModelData(model)
+    } catch (e) {
+      let err = new Error(e)
+      console.log(err)
+    }
+  }
 
   return (
     <><form className='new-model' onSubmit={handleSubmit}>
       <div className='wrapper'>
-        
+
         <div className='card'>
           <div className="product-canvas">
             <Canvas shadows
@@ -35,8 +52,11 @@ function handleSubmit() {
                   <shadowMaterial attach='material' opacity={.3} />
                 </mesh>
               </group>
-              <Shoe />
+              {modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh}/>
+                : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
+                  : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
 
+              }
               <Lights />
               <OrbitControls />
             </Canvas >
@@ -44,24 +64,38 @@ function handleSubmit() {
           <h3> Choose Color</h3>
           <div className='colors'>
             <div>
-              <input type="color" id='mesh' name='mesh' value={mesh} onChange={(e) => setMesh(e.target.value)} />
+              <input type="color" id='mesh' name='mesh' value={modelData.mesh} onChange={handleChange} />
               <label htmlFor='mesh'>Main</label>
             </div>
             <div>
-              <input type='color' id='stripes' name='stripes' value={stripes} onChange={(e) => setStripes(e.target.value)} />
+              <input type='color' id='stripes' name='stripes' value={modelData.stripes} onChange={handleChange} />
               <label htmlFor="stripes">Stripes</label>
             </div>
             <div>
-              <input type='color' id='sole' name='sole' value={sole} onChange={(e) => setSole(e.target.value)} />
+              <input type='color' id='sole' name='sole' value={modelData.sole} onChange={handleChange} />
               <label htmlFor="sole">Sole</label>
             </div>
           </div>
         </div>
+        <div>
+          <label htmlFor="product">Design</label>
+          <select type='color' id='product' name='product' value={modelData.product} onChange={handleChange}>
+            <option value="/shoe/shoe.gltf">Shoe</option>
+            <option value="/sweater/sweater.gltf">Sweater</option>
+            <option value="/jacket/jacket.gltf">Jacket</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type='text' id='name' name='name' value={modelData.name} required onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="description">Description</label>
+          <textarea type='text' id='description' name='description' value={modelData.description} onChange={handleChange} />
+        </div>
+        <button className="create-model-btn" type="submit">Create Design</button>
       </div>
-      <label htmlFor='type'></label>
-       </form>
-      <button type="submit">Create Design</button>
-      {/* <input name='name'/> */}
+    </form>
     </>
   );
 }

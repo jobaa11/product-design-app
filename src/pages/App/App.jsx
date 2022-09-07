@@ -34,7 +34,6 @@ export default function App() {
         <AuthPage setUser={setUser} />
         <Canvas shadows
         className='canvas'
-        colormanagement
         camaera={{ position: [-5, 2, 10], fov: 70 }}>
         <Suspense fallback={null}>
           <group>
