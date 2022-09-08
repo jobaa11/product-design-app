@@ -6,7 +6,6 @@ module.exports = {
   getAll,
   edit,
   deleteModel,
-  show
 }
 
 async function getAll(req, res) {
@@ -36,13 +35,8 @@ async function edit(req, res) {
     new Error();
   }
 }
-async function show(req, res) {
-  const model = await Model.findById(req.params.id)
-  res.json(model)
-}
+
 
 async function deleteModel(req, res) {
   model = await Model.findByIdAndDelete(req.params.id)
-  console.log(model)
-  res.json(model)
 }

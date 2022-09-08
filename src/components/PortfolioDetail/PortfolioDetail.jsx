@@ -5,31 +5,23 @@ import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
 import { useState, useEffect } from 'react'
-import * as modelsApi from '../../utilities/models-api'
+import * as modelsAPI from '../../utilities/models-api'
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-export default function PortfolioDetailPage(props) {
-    const [models, setModels] = useState([]);
-    let { id } = useParams();
+export default function PortfolioDetailPage({ models }) {
+    const { id } = useParams();
+    // const object = models.filter((model) => model._id === id);
+    const [model, setModel] = useState([]);
 
-
-
-    useEffect(function () {
-        async function getModels() {
-            const models = await modelsApi.getById(id);
-            setModels(models);
-        }
-        getModels();
-    }, []);
+    const navigate = useNavigate();
 
     const handleDelete = async () => {
-        try {
-            let object = await modelsApi.deleteModel(id)
-        } catch {
-
-        }
+        await modelsAPI.deleteModel(id)
+        navigate('/portfolio')
     }
+
     return (
         <>
             <main className='new-model' >
@@ -49,9 +41,9 @@ export default function PortfolioDetailPage(props) {
                                         <shadowMaterial attach='material' opacity={.3} />
                                     </mesh>
                                 </group>
-                                {models.product === '/shoe/shoe.gltf' ? <Shoe />
-                                    : models.product === '/jacket/jacket.gltf' ? <Jacket />
-                                        : models.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
+                                {model.product === '/shoe/shoe.gltf' ? <Shoe />
+                                    : model.product === '/jacket/jacket.gltf' ? <Jacket />
+                                        : model.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
 
                                 }
                                 <Lights />
@@ -63,12 +55,14 @@ export default function PortfolioDetailPage(props) {
                     </div>
                     <div>
                         <label htmlFor="name">Name</label>
-                        {props.user.name}
+                        {model.name}
                     </div>
+                    <label htmlFor="name">Description</label>
 
                     <div>
-                        <label htmlFor="description">Description</label>
-                        {props.user.email}
+
+                        {model.description}
+
                     </div>
                     <button className="create-model-btn" type="submit">Update Design</button>
                 </div>

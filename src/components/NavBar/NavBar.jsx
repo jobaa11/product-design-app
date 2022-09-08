@@ -21,9 +21,13 @@ export default function NavBar({ user, setUser }) {
                 welcome, {user.name.trim().replace(/^\w/, (c) => c.toUpperCase())}.
                 &nbsp;| &nbsp;
               </li> : ''}
+              { user ?
             <li className='links'>
               <Link to='/portfolio'>portfolio</Link>
-            </li>
+            </li> :
+            <li className='links'>
+              <Link to='/research'>research</Link>
+            </li> }
             &nbsp; | &nbsp;
             <li className='links'>
               <Link to='/about'>about us</Link>

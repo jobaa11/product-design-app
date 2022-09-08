@@ -6,6 +6,7 @@ import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
+import { useNavigate } from "react-router-dom";
 
 export default function NewModelPage(props) {
   const [modelData, setModelData] = useState({
@@ -17,6 +18,8 @@ export default function NewModelPage(props) {
     description: ''
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (evt) => {
     setModelData({ ...modelData, [evt.target.name]: evt.target.value })
   }
@@ -26,6 +29,7 @@ export default function NewModelPage(props) {
       evt.preventDefault();
       let model = await modelsApi.newModel(modelData)
       setModelData(model)
+      navigate('/portfolio')
     } catch (e) {
       let err = new Error(e)
       console.log(err)
