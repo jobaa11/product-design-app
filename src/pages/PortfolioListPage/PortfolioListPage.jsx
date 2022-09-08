@@ -4,20 +4,11 @@ import { OrbitControls } from "@react-three/drei";
 import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
-import * as modelsApi from "../../utilities/models-api"
-import { useState } from "react";
 
 
 
 export default function PortfolioListPage({ model }) {
-    const [models, setModels] = useState([])
 
-   
-async function handleDelete(modelId) {
-    modelId = model._id
-    await modelsApi.deleteModel(modelId);
-    setModels(models)
-}
 
     return (
         <>
@@ -61,7 +52,7 @@ async function handleDelete(modelId) {
                     <div>
                         <label htmlFor="description">Description</label>
                         <h3>{model.description}</h3>
-                        <button onClick={handleDelete}>Delete</button>
+                   
                     </div>
                 </div>
             </div>

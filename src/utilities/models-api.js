@@ -12,11 +12,13 @@ export function newModel(userData) {
 }
 
 
-export function edit(modelId) {
-    return sendRequest(`/portfolio/${ modelId.name }`, 'PUT')
+export function getById(id) {
+    return sendRequest(`/portfolio/${id}`)
+}
+export function edit(id) {
+    return sendRequest(`/portfolio/${id}`, 'PUT')
 }
 
-export function deleteModel(modelId) {
-    // console.log(modelId)
-    return sendRequest(`/portfolio/${ modelId }`, 'DELETE')
+export function deleteModel(id) {
+    return sendRequest(`/portfolio/${id}`, 'DELETE')
 }

@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getUser } from '../../utilities/users-service';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber'
@@ -12,13 +12,22 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import PortfolioDetailPage from '../../pages/PortfolioDetail/PortfolioDetailPage'
+import * as modelsApi from '../../utilities/models-api'
 
 softShadows();
 
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  // const [models, setModels] = useState([]);
 
+  // useEffect(function () {
+  //     async function getModels() {
+  //         const models = await modelsApi.getAll();
+  //         setModels(models);
+  //     }
+  //     getModels();
+  // }, []);
   return (
     <div id="root" className='App'>
       <NavBar user={user} setUser={setUser} />
@@ -26,9 +35,9 @@ export default function App() {
         <>
           <Routes>
             <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} />} />
-            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id}/>} />
+            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user.name}/>} />
             <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser}/>} />
-            <Route path='/portfolio/:id' element={<PortfolioDetailPage user={user} setUser={setUser}/>} />
+            <Route path='/portfolio/:id' element={<PortfolioDetailPage user={user} setUser={setUser} />} />
           </Routes>
         </>
         :
