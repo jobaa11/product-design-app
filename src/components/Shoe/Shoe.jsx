@@ -9,7 +9,7 @@ const Shoe = (props, textures) => {
     const { nodes } = useGLTF('/shoe/shoe.gltf')
 
     return (
-        <group {...props} dispose={null} ref={mesh}>
+        <group receiveShadow {...props} dispose={null} ref={mesh}>
             <mesh position={[0, 0, 8]}  castShadow geometry={nodes.Model_material0_0.geometry}  >
                 <meshStandardMaterial color={color} transparent />
             </mesh>

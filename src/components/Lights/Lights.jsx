@@ -1,4 +1,5 @@
-
+import { softShadows } from "@react-three/drei";
+softShadows();
 
 const Lights = () => {
     return (
@@ -17,6 +18,15 @@ const Lights = () => {
         <pointLight position={[-10, 0, -20]} intensity={0.5} />
         <pointLight position={[0, -10, 0]} intensity={1.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />
+        <group>
+      <mesh
+        receiveShadow
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, -3, 0]}>
+        <planeBufferGeometry attach='geometry' args={[100, 100]} />
+        <shadowMaterial attach='material' opacity={.3} />
+      </mesh>
+    </group>
       </>
     );
   };

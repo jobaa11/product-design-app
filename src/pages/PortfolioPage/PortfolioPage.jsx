@@ -25,9 +25,7 @@ export default function Portfolio() {
 
             {models.map((model, idx) =>
                 <>
-                    <PortfolioListPage model={model} key={idx} >
-                        <PortfolioDetailPage model={model}/>
-                    </PortfolioListPage>
+                    <PortfolioListPage model={model} key={idx} />
                     <Link to={`/portfolio/${model._id}`} model={model}>Edit</Link>
                     
                     

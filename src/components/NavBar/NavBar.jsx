@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import { Html } from '@react-three/drei';
 
 export default function NavBar({ user, setUser }) {
 
@@ -9,6 +10,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
+   
     <header>
       <div className='header-main'>
         <div className='logo'>Ọja.</div>
@@ -39,5 +41,6 @@ export default function NavBar({ user, setUser }) {
         </nav>
       </div>
     </header>
+   
   );
 }
