@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
                 &nbsp;| &nbsp;
               </li> : ''}
             <li className='links'>
-              <Link to='/models/portfolio'>portfolio</Link>
+              <Link to='/portfolio'>portfolio</Link>
             </li>
             &nbsp; | &nbsp;
             <li className='links'>

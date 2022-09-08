@@ -5,8 +5,6 @@ import Jacket from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import * as modelsApi from '../../utilities/models-api'
 
 export default function NewModelPage(props) {
@@ -19,10 +17,10 @@ export default function NewModelPage(props) {
     description: ''
   });
 
-
   const handleChange = (evt) => {
     setModelData({ ...modelData, [evt.target.name]: evt.target.value })
   }
+
   const handleSubmit = async (evt) => {
     try {
       evt.preventDefault();

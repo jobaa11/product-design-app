@@ -11,6 +11,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
+import PortfolioDetailPage from '../../pages/PortfolioDetail/PortfolioDetailPage'
 
 softShadows();
 
@@ -25,8 +26,9 @@ export default function App() {
         <>
           <Routes>
             <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} />} />
-            <Route path='/models/portfolio' element={<Portfolio user={user} setUser={setUser} />} />
-            <Route path='/' element={<Navigate to='/models/portfolio' />} />
+            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id}/>} />
+            <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser}/>} />
+            <Route path='/portfolio/:id' element={<PortfolioDetailPage user={user} setUser={setUser}/>} />
           </Routes>
         </>
         :
