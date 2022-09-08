@@ -6,16 +6,15 @@ import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
 import { useState, useEffect } from 'react'
 import * as modelsAPI from '../../utilities/models-api'
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 export default function PortfolioDetailPage({ models }) {
-    const { id } = useParams();
-    // const object = models.filter((model) => model._id === id);
-    const [model, setModel] = useState([]);
-
     const navigate = useNavigate();
+    const { id } = useParams();
+    const object = models.filter((model) => model._id === id);
+    const [model, setModel] = useState(...object);
+
 
     const handleDelete = async () => {
         await modelsAPI.deleteModel(id)
