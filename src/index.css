@@ -352,3 +352,7 @@ nav>ul>li>a:active {
 .capitalize {
   text-transform: capitalize;
 }
+
+.design-btn {
+  margin-bottom: 200px;
+}

@@ -1,15 +1,15 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
 import { Canvas } from "@react-three/fiber";
-import Lights from "../../components/Lights/Lights";
 import { OrbitControls } from "@react-three/drei";
+import * as modelsAPI from '../../utilities/models-api'
+import Lights from "../../components/Lights/Lights";
 import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
-import { useState, useEffect } from 'react'
-import * as modelsAPI from '../../utilities/models-api'
-import { useParams, useNavigate } from "react-router-dom";
 
 
-export default function PortfolioDetailPage({ models }) {
+export default function ModelDetail({ models }) {
     const navigate = useNavigate();
     const { id } = useParams();
     // const object = models.filter((model) => model._id === id);
@@ -60,7 +60,7 @@ export default function PortfolioDetailPage({ models }) {
 
 
                     </div>
-                    <div>
+                    <div className="capitalize">
                         <label htmlFor="name">Name</label>
                         {model.name}
                     </div>
@@ -71,10 +71,9 @@ export default function PortfolioDetailPage({ models }) {
                         {model.description}
 
                     </div>
-                    <button className="create-model-btn" type="submit">Update Design</button>
                 </div>
             </main>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete}>Delete Design</button>
 
         </>
     )
