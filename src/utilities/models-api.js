@@ -15,8 +15,8 @@ export function getModelById(id) {
     return sendRequest(`/portfolio/${id}`)
 }
 
-export function edit(id) {
-    return sendRequest(`${BASE_URL}/portfolio/${id}`, 'PUT')
+export function edit(id, data) {
+    return sendRequest(`${BASE_URL}/portfolio/${id}`, 'PUT', data)
 }
 
 export function deleteModel(id) {

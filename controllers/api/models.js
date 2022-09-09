@@ -28,8 +28,10 @@ async function create(req, res) {
 
 async function edit(req, res) {
   try {
-    const edit = await Model.findByIdAndUpdate(req.params.id)
-    console.log(req.user._id, edit)
+    const edit = await Model.findByIdAndUpdate(
+      { _id: req.params.id, user: req.user.id },
+      req.body,
+      { new: true })
     res.json(edit)
   } catch {
     new Error();

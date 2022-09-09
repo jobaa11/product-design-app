@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as modelsAPI from '../../utilities/models-api'
@@ -8,13 +8,23 @@ import Jacket from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 
-export default function ModelUpdate(props, { models }) {
+export default function ModelUpdate(props) {
+  let {id} = useParams();
+
+  useEffect(function () {
+    async function getModel() {
+        const object = props.models.filter((model) => model._id === id);
+        setModelUpdate(...object);
+    }
+    getModel();
+}, [props.models]);
+
   const [modelUpdate, setModelUpdate] = useState({
-    mesh: '#ffffff',
-    stripes: '#C78f8f',
-    sole: '#A5CFE1',
+    mesh: '',
+    stripes: '',
+    sole: '',
     name: '',
-    product: '/shoe/shoe.gltf',
+    product: '',
     description: ''
   });
 
@@ -27,7 +37,7 @@ export default function ModelUpdate(props, { models }) {
   const handleSubmit = async (evt) => {
     try {
       evt.preventDefault();
-      let model = await modelsAPI.newModel(modelUpdate)
+      let model = await modelsAPI.edit(id, modelUpdate)
       setModelUpdate(model)
       navigate('/portfolio')
     } catch (e) {
@@ -95,7 +105,7 @@ export default function ModelUpdate(props, { models }) {
           <label htmlFor="description">Description</label>
           <textarea type='text' id='description' name='description' value={modelUpdate.description} onChange={handleChange} />
         </div>
-        <button className="create-model-btn" type="submit">Create Design</button>
+        <button className="create-model-btn" type="submit">Update Design</button>
       </div>
     </form>
     </>

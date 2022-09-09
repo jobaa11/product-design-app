@@ -11,7 +11,7 @@ import Shoe from "../../components/Shoe/Shoe";
 
 export default function ModelDetail({ models }) {
     const navigate = useNavigate();
-    const { id } = useParams();
+    let { id } = useParams();
     // const object = models.filter((model) => model._id === id);
     const [model, setModel] = useState([]);
 

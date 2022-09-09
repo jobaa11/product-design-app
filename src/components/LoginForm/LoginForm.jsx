@@ -22,11 +22,13 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      // window.location.reload(false);
     } catch {
       setError('Log In Failed - Try Again');
     }
   }
 
+ 
   return (
     <div>
       <div className="form-container">

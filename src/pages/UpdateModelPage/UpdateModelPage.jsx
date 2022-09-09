@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ModelDetail from '../../components/ModelDetail/ModelDetail'
 import ModelUpdate from '../../components/ModelUpdate/ModelUpdate'
 
-export default function AuthPage({ setUser, models }) {
+export default function UpdateModelPage({ setUser, models }) {
   const [showUpdate, setShowUpdate] = useState(true);
 
   return (
