@@ -4,7 +4,7 @@ import Shoe from "../../components/Shoe/Shoe";
 import Jacket from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
 

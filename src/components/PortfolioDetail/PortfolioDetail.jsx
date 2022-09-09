@@ -12,9 +12,17 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function PortfolioDetailPage({ models }) {
     const navigate = useNavigate();
     const { id } = useParams();
-    const object = models.filter((model) => model._id === id);
-    const [model, setModel] = useState(...object);
+    // const object = models.filter((model) => model._id === id);
+    const [model, setModel] = useState([]);
 
+
+    useEffect(function () {
+        async function getModel() {
+            const object = models.filter((model) => model._id === id);
+            setModel(...object);
+        }
+        getModel();
+    }, [models]);
 
     const handleDelete = async () => {
         await modelsAPI.deleteModel(id)

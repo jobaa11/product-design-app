@@ -12,6 +12,4 @@ router.put('/portfolio/:id', modelsCtrl.edit)
 // DELETE /api/models/portfolio/:id
 router.delete('/portfolio/:id', modelsCtrl.deleteModel)
 
-
-
 module.exports = router;

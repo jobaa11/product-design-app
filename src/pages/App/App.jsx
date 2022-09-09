@@ -8,7 +8,6 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import PortfolioDetail from '../../components/PortfolioDetail/PortfolioDetail'
-import About from '../../pages/About/About'
 import * as modelsApi from '../../utilities/models-api'
 
 

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
-import { Html } from '@react-three/drei';
 
 export default function NavBar({ user, setUser }) {
 
