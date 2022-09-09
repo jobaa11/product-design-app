@@ -9,15 +9,15 @@ import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 
 export default function ModelUpdate(props) {
-  let {id} = useParams();
+  let { id } = useParams();
 
   useEffect(function () {
     async function getModel(id) {
-        const object = props.models.filter((model) => model._id === id);
-        setModelUpdate(...object);
+      const object = props.models.filter((model) => model._id === id);
+      setModelUpdate(...object);
     }
     getModel(id);
-}, [props.models, id]);
+  }, [props.models, id]);
 
   const [modelUpdate, setModelUpdate] = useState({
     mesh: '',
@@ -47,67 +47,66 @@ export default function ModelUpdate(props) {
   }
 
   return (
-    <><form className='new-model' onSubmit={handleSubmit}>
-      <div className='wrapper'>
+    <>
+      <form className='new-model' onSubmit={handleSubmit}>
+        <div className='wrapper'>
 
-        <div className='card'>
-          <div className="product-canvas">
-            <Canvas shadows
-
-              camaera={{ position: [-5, 2, 10], fov: 70 }}>
-              <group>
-                <mesh
-                  receiveShadow
-                  rotation={[-Math.PI / 2, 0, 0]}
-                  position={[0, -3, 2]}>
-                  <planeBufferGeometry attach='geometry' args={[100, 100]} />
-                  <shadowMaterial attach='material' opacity={.3} />
-                </mesh>
-              </group>
-              {modelUpdate.product === '/shoe/shoe.gltf' ? <Shoe textures={modelUpdate.mesh} />
-                : modelUpdate.product === '/jacket/jacket.gltf' ? <Jacket />
-                  : modelUpdate.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
-
-              }
-              <Lights />
-              <OrbitControls />
-            </Canvas >
+          <div className='card'>
+            <div className="product-canvas">
+              <Canvas shadows
+                camaera={{ position: [-5, 2, 10], fov: 70 }}>
+                <group>
+                  <mesh
+                    receiveShadow
+                    rotation={[-Math.PI / 2, 0, 0]}
+                    position={[0, -3, 2]}>
+                    <planeBufferGeometry attach='geometry' args={[100, 100]} />
+                    <shadowMaterial attach='material' opacity={.3} />
+                  </mesh>
+                </group>
+                {modelUpdate.product === '/shoe/shoe.gltf' ? <Shoe textures={modelUpdate.mesh} />
+                  : modelUpdate.product === '/jacket/jacket.gltf' ? <Jacket />
+                    : modelUpdate.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
+                }
+                <Lights />
+                <OrbitControls />
+              </Canvas >
+            </div>
+            <h3> Choose Color</h3>
+            <div className='colors'>
+              <div>
+                <input type="color" id='mesh' name='mesh' value={modelUpdate.mesh} onChange={handleChange} />
+                <label htmlFor='mesh'>Main</label>
+              </div>
+              <div>
+                <input type='color' id='stripes' name='stripes' value={modelUpdate.stripes} onChange={handleChange} />
+                <label htmlFor="stripes">Stripes</label>
+              </div>
+              <div>
+                <input type='color' id='sole' name='sole' value={modelUpdate.sole} onChange={handleChange} />
+                <label htmlFor="sole">Sole</label>
+              </div>
+            </div>
           </div>
-          <h3> Choose Color</h3>
-          <div className='colors'>
-            <div>
-              <input type="color" id='mesh' name='mesh' value={modelUpdate.mesh} onChange={handleChange} />
-              <label htmlFor='mesh'>Main</label>
-            </div>
-            <div>
-              <input type='color' id='stripes' name='stripes' value={modelUpdate.stripes} onChange={handleChange} />
-              <label htmlFor="stripes">Stripes</label>
-            </div>
-            <div>
-              <input type='color' id='sole' name='sole' value={modelUpdate.sole} onChange={handleChange} />
-              <label htmlFor="sole">Sole</label>
-            </div>
+          <div>
+            <label htmlFor="product">Design</label>
+            <select type='color' id='product' name='product' value={modelUpdate.product} onChange={handleChange}>
+              <option value="/shoe/shoe.gltf">Shoe</option>
+              <option value="/sweater/sweater.gltf">Sweater</option>
+              <option value="/jacket/jacket.gltf">Jacket</option>
+            </select>
           </div>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input type='text' id='name' name='name' value={modelUpdate.name} required onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="description">Description</label>
+            <textarea type='text' id='description' name='description' value={modelUpdate.description} onChange={handleChange} />
+          </div>
+          <button className="create-model-btn" type="submit">Update Design</button>
         </div>
-        <div>
-          <label htmlFor="product">Design</label>
-          <select type='color' id='product' name='product' value={modelUpdate.product} onChange={handleChange}>
-            <option value="/shoe/shoe.gltf">Shoe</option>
-            <option value="/sweater/sweater.gltf">Sweater</option>
-            <option value="/jacket/jacket.gltf">Jacket</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input type='text' id='name' name='name' value={modelUpdate.name} required onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea type='text' id='description' name='description' value={modelUpdate.description} onChange={handleChange} />
-        </div>
-        <button className="create-model-btn" type="submit">Update Design</button>
-      </div>
-    </form>
+      </form>
     </>
   );
 }
