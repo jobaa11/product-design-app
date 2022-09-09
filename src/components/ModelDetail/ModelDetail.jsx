@@ -10,20 +10,20 @@ import Shoe from "../../components/Shoe/Shoe";
 
 
 export default function ModelDetail({ models }) {
-    const navigate = useNavigate();
     let { id } = useParams();
     // const object = models.filter((model) => model._id === id);
     const [model, setModel] = useState([]);
-
-
+    
+    
     useEffect(function () {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
             setModel(...object);
         }
         getModel(id);
-    }, [models]);
-
+    }, [models, id]);
+    const navigate = useNavigate();
+    
     const handleDelete = async (id) => {
         await modelsAPI.deleteModel(id)
         navigate('/portfolio')

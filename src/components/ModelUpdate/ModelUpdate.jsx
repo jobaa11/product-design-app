@@ -12,12 +12,12 @@ export default function ModelUpdate(props) {
   let {id} = useParams();
 
   useEffect(function () {
-    async function getModel() {
+    async function getModel(id) {
         const object = props.models.filter((model) => model._id === id);
         setModelUpdate(...object);
     }
-    getModel();
-}, [props.models]);
+    getModel(id);
+}, [props.models, id]);
 
   const [modelUpdate, setModelUpdate] = useState({
     mesh: '',
