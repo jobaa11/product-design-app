@@ -17,14 +17,14 @@ export default function ModelDetail({ models }) {
 
 
     useEffect(function () {
-        async function getModel() {
+        async function getModel(id) {
             const object = models.filter((model) => model._id === id);
             setModel(...object);
         }
-        getModel();
+        getModel(id);
     }, [models]);
 
-    const handleDelete = async () => {
+    const handleDelete = async (id) => {
         await modelsAPI.deleteModel(id)
         navigate('/portfolio')
     }
@@ -73,7 +73,7 @@ export default function ModelDetail({ models }) {
                     </div>
                 </div>
             </main>
-            <button onClick={handleDelete}>Delete Design</button>
+            <button onClick={(() => handleDelete(id))}>Delete Design</button>
 
         </>
     )
