@@ -51,7 +51,7 @@ export default function PortfolioListPage({ model }) {
                     
                     <div>
                         <label htmlFor="description">Description</label>
-                        <h3>{model.description}</h3>
+                        <h3 className="desc">{model.description}</h3>
                    
                     </div>
                 </div>

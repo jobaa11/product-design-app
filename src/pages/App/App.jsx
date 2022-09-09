@@ -10,7 +10,6 @@ import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../../pages/UpdateModelPage/UpdateModelPage'
 import * as modelsApi from '../../utilities/models-api'
 
-
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [models, setModels] = useState([]);

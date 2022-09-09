@@ -18,5 +18,5 @@ export default function Index(props) {
                 </Suspense>
             </Canvas >
         </>
-    )
+    );
 }

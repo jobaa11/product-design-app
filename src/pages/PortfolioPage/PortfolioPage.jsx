@@ -4,7 +4,6 @@ import PortfolioListCard from "../../components/PortfolioListCard/PortfolioListC
 
 export default function Portfolio({models}) {
 
-
     return (
         <>
             {models.map((model, idx) =>
@@ -12,7 +11,7 @@ export default function Portfolio({models}) {
                     <PortfolioListCard model={model} key={idx} /> 
                     <Link to={`/portfolio/${model._id}`}>Edit</Link> 
                 </>
-            )}
+            )};
         </>
-    )
+    );
 }

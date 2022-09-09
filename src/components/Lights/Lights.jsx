@@ -29,6 +29,6 @@ const Lights = () => {
       </group>
     </>
   );
-};
+}
 
 export default Lights;

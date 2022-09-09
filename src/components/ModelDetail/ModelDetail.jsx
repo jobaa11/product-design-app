@@ -8,13 +8,9 @@ import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
 
-
 export default function ModelDetail({ models }) {
     let { id } = useParams();
-    // const object = models.filter((model) => model._id === id);
     const [model, setModel] = useState([]);
-    
-    
     useEffect(function () {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
@@ -22,22 +18,26 @@ export default function ModelDetail({ models }) {
         }
         getModel(id);
     }, [models, id]);
+
     const navigate = useNavigate();
-    
+
     const handleDelete = async (id) => {
-        await modelsAPI.deleteModel(id)
-        navigate('/portfolio')
+        try {
+            await modelsAPI.deleteModel(id)
+            navigate('/portfolio')
+        } catch (e) {
+            let err = new Error(e)
+            console.log(err)
+        }
     }
 
     return (
         <>
             <main className='new-model' >
                 <div className='wrapper'>
-
                     <div className='card'>
                         <div className="product-canvas">
                             <Canvas shadows
-
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
                                 <group>
                                     <mesh
@@ -51,30 +51,23 @@ export default function ModelDetail({ models }) {
                                 {model.product === '/shoe/shoe.gltf' ? <Shoe />
                                     : model.product === '/jacket/jacket.gltf' ? <Jacket />
                                         : model.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
-
                                 }
                                 <Lights />
                                 <OrbitControls />
                             </Canvas >
                         </div>
-
-
                     </div>
                     <div className="capitalize">
                         <label htmlFor="name">Name</label>
                         {model.name}
                     </div>
                     <label htmlFor="name">Description</label>
-
                     <div>
-
                         {model.description}
-
                     </div>
                 </div>
             </main>
             <button onClick={(() => handleDelete(id))}>Delete Design</button>
-
         </>
-    )
+    );
 }
