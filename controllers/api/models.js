@@ -38,7 +38,6 @@ async function edit(req, res) {
   }
 }
 
-
 async function deleteModel(req, res) {
   model = await Model.findByIdAndDelete(req.params.id)
 }
