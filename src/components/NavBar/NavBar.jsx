@@ -23,22 +23,25 @@ export default function NavBar({ user, setUser }) {
               { user ?
             <li className='links'>
               <Link to='/portfolio'>portfolio</Link>
-            </li> :
-            <li className='links'>
-              <Link to='/research'>research</Link>
-            </li> }
-            &nbsp; | &nbsp;
+              &nbsp; | &nbsp;
+            </li> : ''
+            // <li className='links'>
+            //   <Link to='/research'>research</Link>
+            // </li> 
+            }
+            {user ?
             <li className='links'>
               <Link to='/about'>about us</Link>
-            </li>
             &nbsp; | &nbsp;
+            </li> : '' }
             {user ?
             <li className='links'>
               <Link to='' onClick={handleLogOut}>log out</Link>
             &nbsp; | &nbsp;
             </li> : '' }
             <li className='btn'>
-              <Link to='/models/new'>design</Link>
+              
+              <Link to='/models/new'>{user ? 'design' : 'about us'}</Link>
             </li>
           </ul>
         </nav>

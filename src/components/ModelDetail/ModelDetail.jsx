@@ -40,13 +40,13 @@ export default function ModelDetail({ models }) {
                             <Canvas shadows
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
                                 <group>
-                                    <mesh
-                                        receiveShadow
+                                    {/* <mesh
+                                        // receiveShadow
                                         rotation={[-Math.PI / 2, 0, 0]}
-                                        position={[0, -3, 2]}>
+                                        position={[0, -3.003, 2]}>
                                         <planeBufferGeometry attach='geometry' args={[100, 100]} />
                                         <shadowMaterial attach='material' opacity={.3} />
-                                    </mesh>
+                                    </mesh> */}
                                 </group>
                                 {model.product === '/shoe/shoe.gltf' ? <Shoe />
                                     : model.product === '/jacket/jacket.gltf' ? <Jacket />

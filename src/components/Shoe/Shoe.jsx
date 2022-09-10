@@ -10,7 +10,7 @@ const Shoe = (props, textures) => {
 
     return (
         <group receiveShadow {...props} dispose={null} ref={mesh}>
-            <mesh position={[0, 0, 8]}  castShadow geometry={nodes.Model_material0_0.geometry}  >
+            <mesh position={[0.001, 0, 8]}  castShadow geometry={nodes.Model_material0_0.geometry}  >
                 <meshStandardMaterial color='pink' transparent />
             </mesh>
         </group>
@@ -18,4 +18,5 @@ const Shoe = (props, textures) => {
     );
 };
 
+useGLTF.preload('/shoe/shoe.gltf')
 export default Shoe;

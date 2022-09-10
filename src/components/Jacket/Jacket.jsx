@@ -18,5 +18,5 @@ const Jacket = (props) => {
       </group>
     );
   }
-
+  useGLTF.preload('/jacket/jacket.gltf')
   export default Jacket;

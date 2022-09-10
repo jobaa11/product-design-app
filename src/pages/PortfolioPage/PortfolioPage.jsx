@@ -8,7 +8,7 @@ export default function Portfolio({models}) {
         <>
             {models.map((model, idx) =>
                 <>
-                    <PortfolioListCard model={model} key={idx} /> 
+                    <PortfolioListCard model={model} key={model._id} /> 
                     <Link to={`/portfolio/${model._id}`}>Edit</Link> 
                 </>
             )}

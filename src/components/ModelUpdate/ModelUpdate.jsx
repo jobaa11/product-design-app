@@ -59,7 +59,7 @@ export default function ModelUpdate(props) {
                   <mesh
                     receiveShadow
                     rotation={[-Math.PI / 2, 0, 0]}
-                    position={[0, -3, 2]}>
+                    position={[0, -3.003, 2]}>
                     <planeBufferGeometry attach='geometry' args={[100, 100]} />
                     <shadowMaterial attach='material' opacity={.3} />
                   </mesh>

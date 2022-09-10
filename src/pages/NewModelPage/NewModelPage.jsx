@@ -44,15 +44,15 @@ export default function NewModelPage(props) {
             <div className="product-canvas">
               <Canvas shadows
                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
-                <group>
+                {/* <group className="invisible-plane">
                   <mesh
-                    receiveShadow
+                    // receiveShadow
                     rotation={[-Math.PI / 2, 0, 0]}
-                    position={[0, -3, 2]}>
+                    position={[0, -3.002, 2]}>
                     <planeBufferGeometry attach='geometry' args={[100, 100]} />
                     <shadowMaterial attach='material' opacity={.3} />
                   </mesh>
-                </group>
+                </group> */}
                 {modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh} />
                   : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
                     : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />

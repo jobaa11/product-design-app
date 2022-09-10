@@ -18,20 +18,20 @@ export default function PortfolioListPage({ model }) {
                     <div className='card'>
                         <div className="product-canvas">
                             <Canvas shadows
-
+                                linear
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
-                                <group>
+                                {/* <group className='invisible-plane'>
                                     <mesh
                                         receiveShadow
                                         rotation={[-Math.PI / 2, 0, 0]}
-                                        position={[0, -3, 2]}>
+                                        position={[0.001, -3.001, 2]}>
                                         <planeBufferGeometry attach='geometry' args={[100, 100]} />
                                         <shadowMaterial attach='material' opacity={.3} />
                                     </mesh>
-                                </group>
+                                </group> */}
                                 {model.product === '/shoe/shoe.gltf' ? <Shoe textures={model} />
-                                    : model.product === '/jacket/jacket.gltf' ? <Jacket textures={model}/>
-                                        : model.product === '/sweater/sweater.gltf' ? <Sweater textures={model}/> : <Shoe textures={model}/>
+                                    : model.product === '/jacket/jacket.gltf' ? <Jacket textures={model} />
+                                        : model.product === '/sweater/sweater.gltf' ? <Sweater textures={model} /> : <Shoe textures={model} />
 
                                 }
                                 <Lights />
@@ -48,11 +48,11 @@ export default function PortfolioListPage({ model }) {
                         <label htmlFor="name">Name</label>
                         <h3 className='capitalize'>{model.name}</h3>
                     </div>
-                    
+
                     <div>
                         <label htmlFor="description">Description</label>
                         <h3 className="desc">{model.description}</h3>
-                   
+
                     </div>
                 </div>
             </div>
