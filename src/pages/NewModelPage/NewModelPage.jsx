@@ -8,7 +8,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
 
-export default function NewModelPage(props) {
+export default function NewModelPage({models, setModels}) {
   const [modelData, setModelData] = useState({
     mesh: '#ffffff',
     stripes: '#C78f8f',
@@ -29,6 +29,7 @@ export default function NewModelPage(props) {
       evt.preventDefault();
       let model = await modelsApi.newModel(modelData)
       setModelData(model)
+      // setModels(models)
       navigate('/portfolio')
     } catch (e) {
       let err = new Error(e)

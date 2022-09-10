@@ -8,7 +8,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../../pages/UpdateModelPage/UpdateModelPage'
-import * as modelsApi from '../../utilities/models-api'
+import * as modelsAPI from '../../utilities/models-api'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,11 +16,11 @@ export default function App() {
 
   useEffect(function () {
     async function getModels() {
-      const models = await modelsApi.getAll();
+      const models = await modelsAPI.getAll();
       setModels(models);
     }
     getModels();
-  }, [user, models]);
+  }, [user]);
 
   return (
     <div id="root" className='App'>
@@ -28,7 +28,7 @@ export default function App() {
       {user ?
         <>
           <Routes>
-            <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} />} />
+            <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
             <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id} models={models} />} />
             {/* <Route path='/about' element={<About/>} /> */}
             <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser} key={user._id}/>} />

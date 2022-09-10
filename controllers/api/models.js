@@ -5,6 +5,7 @@ module.exports = {
   create,
   getAll,
   edit,
+  getOne,
   deleteModel,
 }
 
@@ -13,6 +14,16 @@ async function getAll(req, res) {
     user: req.user._id
   }).exec()
   res.json(models);
+}
+
+async function getOne(req, res) {
+  try {
+    const model = await Model.find({ _id: req.params.id, user: req.user.id })
+    res.json(model)
+
+  } catch (err) {
+    res.status(401).json(err)
+  }
 }
 
 async function create(req, res) {

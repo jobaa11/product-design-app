@@ -9,7 +9,6 @@ import Shoe from "../../components/Shoe/Shoe";
 
 export default function PortfolioListPage({ model }) {
 
-
     return (
         <>
             <div className='new-model'>

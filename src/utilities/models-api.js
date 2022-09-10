@@ -10,8 +10,8 @@ export function getAll() {
     return sendRequest(`${BASE_URL}/portfolio`);
 }
 
-export function getModelById(id) {
-    return sendRequest(`/portfolio/${id}`)
+export function getOne(id) {
+    return sendRequest(`${BASE_URL}/portfolio/${id}`)
 }
 
 export function edit(id, data) {

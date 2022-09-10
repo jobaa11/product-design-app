@@ -8,22 +8,26 @@ import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import Shoe from "../../components/Shoe/Shoe";
 
-export default function ModelDetail({ models }) {
+export default function ModelDetail({ models, user }) {
     let { id } = useParams();
     const [model, setModel] = useState([]);
     useEffect(function () {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
-            setModel(...object);
+            const objModel = await modelsAPI.getOne(id);
+            console.log(object, objModel)
+            // if (object === objModel)
+                setModel(...object);
         }
         getModel(id);
-    }, [models, id]);
+    }, [models, id, user]);
 
     const navigate = useNavigate();
 
     const handleDelete = async (id) => {
         try {
             await modelsAPI.deleteModel(id)
+            // setModel(model)
             navigate('/portfolio')
         } catch (e) {
             let err = new Error(e)
