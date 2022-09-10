@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import * as modelsAPI from '../../utilities/models-api'
+import * as PortfoliosAPI from '../../utilities/portfolios-api'
 import Lights from "../../components/Lights/Lights";
 import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
@@ -14,7 +14,7 @@ export default function ModelDetail({ models, user }) {
     useEffect(function () {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
-            const objModel = await modelsAPI.getOne(id);
+            const objModel = await PortfoliosAPI.getOne(id);
             console.log(object, objModel)
             // if (object === objModel)
                 setModel(...object);
@@ -26,7 +26,7 @@ export default function ModelDetail({ models, user }) {
 
     const handleDelete = async (id) => {
         try {
-            await modelsAPI.deleteModel(id)
+            await PortfoliosAPI.deleteModel(id)
             // setModel(model)
             navigate('/portfolio')
         } catch (e) {
