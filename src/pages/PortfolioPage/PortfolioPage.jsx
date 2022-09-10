@@ -11,7 +11,7 @@ export default function Portfolio({models}) {
                     <PortfolioListCard model={model} key={idx} /> 
                     <Link to={`/portfolio/${model._id}`}>Edit</Link> 
                 </>
-            )};
+            )}
         </>
     );
 }

@@ -11,7 +11,7 @@ module.exports = {
 async function getAll(req, res) {
   const models = await Model.find({
     user: req.user._id
-  })
+  }).exec()
   res.json(models);
 }
 
@@ -19,7 +19,8 @@ async function create(req, res) {
   try {
     const model = await Model.create(req.body);
     model.user = req.user._id
-    model.save();
+    model.save()
+    // model.exec();
     res.json(model);
   } catch (err) {
     res.status(400).json(err);
@@ -31,7 +32,7 @@ async function edit(req, res) {
     const edit = await Model.findByIdAndUpdate(
       { _id: req.params.id, user: req.user.id },
       req.body,
-      { new: true })
+      { new: true }).exec()
     res.json(edit)
   } catch {
     new Error();
