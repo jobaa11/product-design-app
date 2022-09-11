@@ -9,7 +9,7 @@ export function Instances({ children, ...props }) {
     const { nodes } = useGLTF('/shoe/shoe.gltf');
     const instances = useMemo(() => ({ mat1: nodes['Model_material0_0'] }), [nodes])
     return (
-        <Merged receiveShadow meshes={instances} {...props}>
+        <Merged castShadow meshes={instances} {...props}>
             {(instances) => <context.Provider value={instances} children={children} />}
         </Merged>
     )
@@ -20,10 +20,9 @@ export function Shoe(props) {
     const mesh = useRef(null);
     // useFrame(() => (mesh.current.rotation.z = mesh.current.rotation.y += 0.006));
     return (
-        <group castShadow  {...props} dispose={null} ref={mesh}>
+        <group receiveShadow  {...props} dispose={null} ref={mesh}>
             <instances.mat1 /> 
             {/* position={[0.001, -7, 15]} */}
-            {/* <instances.mat2 /> */}
         </group>
 
     );

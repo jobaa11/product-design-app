@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useProgress } from "@react-three/drei";
 import * as portfolioAPI from '../../utilities/portfolio-api'
 import Lights from "../../components/Lights/Lights";
-import Jacket from "../../components/Jacket/Jacket";
+import {Jacket} from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import {Shoe} from "../../components/Shoe/Shoe";
 

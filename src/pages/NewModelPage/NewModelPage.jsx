@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Shoe, Instances } from "../../components/Shoe/Shoe";
-import Jacket from '../../components/Jacket/Jacket'
+import {Jacket} from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 import { OrbitControls } from "@react-three/drei";
@@ -45,19 +45,19 @@ export default function NewModelPage({ models, setModels, context }) {
             <div className="product-canvas">
               <Canvas shadows
                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
-                {/* <group className="invisible-plane">
+                <group className="invisible-plane">
                   <mesh
-                    // receiveShadow
+                    receiveShadow
                     rotation={[-Math.PI / 2, 0, 0]}
                     position={[0, -3.002, 2]}>
                     <planeBufferGeometry attach='geometry' args={[100, 100]} />
                     <shadowMaterial attach='material' opacity={.3} />
                   </mesh>
-                </group> */}
+                </group>
                 {
                   // modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh} />
                   modelData.product === '/shoe/shoe.gltf' ? <Instances>
-                    <Shoe castShadows position={[0.001, 0, 8]} />
+                    <Shoe castShadow position={[0.001, 0, 8]}  />
                     <meshStandardMaterial color={modelData.mesh} transparent />
                   </Instances>
                     : modelData.product === '/jacket/jacket.gltf' ? <Jacket />

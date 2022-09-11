@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Lights from "../../components/Lights/Lights";
 import { OrbitControls } from "@react-three/drei";
-import Jacket from "../../components/Jacket/Jacket";
+import {Jacket} from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import {Shoe} from "../../components/Shoe/Shoe";
 
