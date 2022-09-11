@@ -8,7 +8,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../../pages/UpdateModelPage/UpdateModelPage'
-import * as portfoliosAPI from '../../utilities/portfolios-api'
+import * as portfolioAPI from '../../utilities/portfolio-api'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,7 +16,7 @@ export default function App() {
 
   useEffect(function () {
     async function getModels() {
-      const models = await portfoliosAPI.getAll();
+      const models = await portfolioAPI.getAll();
       setModels(models);
     }
     getModels();

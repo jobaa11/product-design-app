@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const portfoliosCtrl = require('../../controllers/api/models');
+const portfoliosCtrl = require('../../controllers/api/portfolios');
 
 
 // GET /api/portfolio

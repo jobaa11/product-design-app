@@ -28,7 +28,7 @@ app.use('/api/users', require('./routes/api/users'));
 
 const ensureLoggedIn = require('./config/ensureLoggedIn')
 app.use('/api/models',ensureLoggedIn, require('./routes/api/models'));
-app.use('/api/portfolios',ensureLoggedIn, require('./routes/api/portfolios'));
+app.use('/api/portfolio',ensureLoggedIn, require('./routes/api/portfolio'));
 
 
 

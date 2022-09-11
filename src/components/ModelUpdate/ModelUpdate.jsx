@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import * as PortfoliosAPI from '../../utilities/portfolios-api'
+import * as portfolioAPI from '../../utilities/portfolio-api'
 import Shoe from "../../components/Shoe/Shoe";
 import Jacket from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
@@ -37,7 +37,7 @@ export default function ModelUpdate(props) {
   const handleSubmit = async (evt) => {
     try {
       evt.preventDefault();
-      let model = await PortfoliosAPI.edit(id, modelUpdate)
+      let model = await portfolioAPI.edit(id, modelUpdate)
       setModelUpdate(model)
       navigate('/portfolio')
     } catch (e) {
