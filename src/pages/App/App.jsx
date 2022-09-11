@@ -1,14 +1,14 @@
-import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUser } from '../../utilities/users-service';
-import Index from '../Index/Index';
+import * as portfolioAPI from '../../utilities/portfolio-api'
+import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
+import Index from '../Index/Index';
 import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
-import UpdateModelPage from '../../pages/UpdateModelPage/UpdateModelPage'
-import * as portfolioAPI from '../../utilities/portfolio-api'
+import UpdateModelPage from '../UpdateModelPage/UpdateModelPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,8 +16,8 @@ export default function App() {
 
   useEffect(function () {
     async function getModels() {
-      const models = await portfolioAPI.getAll();
-      setModels(models);
+      const model = await portfolioAPI.getAll();
+      setModels(model);
     }
     getModels();
   }, [user]);

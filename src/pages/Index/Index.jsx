@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber'
 import Lights from '../../components/Lights/Lights';
 import { OrbitControls, softShadows, Html, useProgress } from '@react-three/drei';
-import Shoe from '../../components/Shoe/Shoe';
+import {Shoe} from '../../components/Shoe/Shoe';
 softShadows();
 
-export default function Index(props) {
+export default function Index() {
     function Loader() {
         const { progress } = useProgress()
         return <Html center>{progress} % loaded</Html>

@@ -1,12 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Html, useProgress } from "@react-three/drei";
 import * as portfolioAPI from '../../utilities/portfolio-api'
 import Lights from "../../components/Lights/Lights";
 import Jacket from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
-import Shoe from "../../components/Shoe/Shoe";
+import {Shoe} from "../../components/Shoe/Shoe";
 
 export default function ModelDetail({ models, user }) {
     let { id } = useParams();
@@ -34,6 +34,10 @@ export default function ModelDetail({ models, user }) {
             console.log(err)
         }
     }
+    function Loader() {
+        const { progress } = useProgress()
+        return <Html center>{progress} % loaded</Html>
+      }
 
     return (
         <>
@@ -43,6 +47,7 @@ export default function ModelDetail({ models, user }) {
                         <div className="product-canvas">
                             <Canvas shadows
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
+                                    <Suspense fallback={<Loader />}>
                                 <group>
                                     {/* <mesh
                                         // receiveShadow
@@ -58,6 +63,7 @@ export default function ModelDetail({ models, user }) {
                                 }
                                 <Lights />
                                 <OrbitControls />
+                                </Suspense>
                             </Canvas >
                         </div>
                     </div>

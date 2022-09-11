@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import Shoe from "../../components/Shoe/Shoe";
+import { Shoe, Instances } from "../../components/Shoe/Shoe";
 import Jacket from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
@@ -8,7 +8,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
 
-export default function NewModelPage({models, setModels}) {
+export default function NewModelPage({ models, setModels, context }) {
   const [modelData, setModelData] = useState({
     mesh: '#ffffff',
     stripes: '#C78f8f',
@@ -29,8 +29,8 @@ export default function NewModelPage({models, setModels}) {
       evt.preventDefault();
       let model = await modelsApi.newModel(modelData)
       setModelData(model)
-      // setModels(models)
       navigate('/portfolio')
+      setModels({ ...models, model })
     } catch (e) {
       let err = new Error(e)
       console.log(err)
@@ -54,9 +54,14 @@ export default function NewModelPage({models, setModels}) {
                     <shadowMaterial attach='material' opacity={.3} />
                   </mesh>
                 </group> */}
-                {modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh} />
-                  : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
-                    : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
+                {
+                  // modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh} />
+                  modelData.product === '/shoe/shoe.gltf' ? <Instances>
+                    <Shoe castShadows position={[0.001, 0, 8]} />
+                    <meshStandardMaterial color={modelData.mesh} transparent />
+                  </Instances>
+                    : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
+                      : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
                 }
                 <Lights />
                 <OrbitControls />
