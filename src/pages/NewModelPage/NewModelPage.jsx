@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Shoe, ShoeInstances } from "../../components/Shoe/Shoe";
-import { Jacket, JacketInstances } from '../../components/Jacket/Jacket'
+// import { Jacket, JacketInstances } from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
 
-// export function AllMesh({nodes, materials}) {
-// return (
-//   <>
-//   <mesh castShadow geometry={nodes.jacket_low_Fabric_0.geometry} material-color='green'/>
-//   <mesh castShadow geometry={nodes.zipper_tab_low_Metal_0.geometry} material={materials.Metal} />
-//   <mesh castShadow geometry={nodes.zipper_slider_low_Metal_0.geometry} material={materials.Metal} />
-//   </>
-// )
-//  }
+const Jacket = ({...props}) => {
+  // const meshes = useRef(null);
+  // useFrame(() => (meshes.current.rotation.y += 0.006));
+  const { nodes, materials } = useGLTF('/jacket/jacket.gltf')
+  return (
+    <group {...props} dispose={null} >
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group position={[0, 0, -5]} rotation={[Math.PI / 2, 0, 0]} scale={1}>
+          <mesh castShadow geometry={nodes.jacket_low_Fabric_0.geometry} material-color={props.colors.mesh}/>
+          <mesh castShadow geometry={nodes.zipper_tab_low_Metal_0.geometry} material={props.colors.stripes} />
+          <mesh castShadow geometry={nodes.zipper_slider_low_Metal_0.geometry} material={props.colors.sole} />
+        </group>
+      </group>
+    </group>
+  );
+}
 
 export default function NewModelPage({ models, setModels, context }) {
   const [modelData, setModelData] = useState({
@@ -74,9 +81,9 @@ export default function NewModelPage({ models, setModels, context }) {
                     <meshStandardMaterial color={modelData.mesh} transparent />
                   </ShoeInstances>
                     // : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
-                    : modelData.product === '/jacket/jacket.gltf' ? <JacketInstances>
-                      <Jacket castShadow />
-                    </JacketInstances>
+                    : modelData.product === '/jacket/jacket.gltf' ? 
+                      <Jacket castShadow colors={{mesh:modelData.mesh, stripes: modelData.stripes, sole: modelData.sole}}/>
+
                       : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
                 }
                 <Lights />
