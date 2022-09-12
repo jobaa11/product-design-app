@@ -1,11 +1,32 @@
-import { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber'
+import { Suspense, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber'
 import Lights from '../../components/Lights/Lights';
-import { OrbitControls, softShadows, Html, useProgress } from '@react-three/drei';
-import {Shoe} from '../../components/Shoe/Shoe';
+import { OrbitControls, softShadows, Html, useProgress, useGLTF } from '@react-three/drei';
+// import {Shoe} from '../../components/Shoe/Shoe';
 softShadows();
 
+const Shoe = (props) => {
+    const mesh = useRef(null);
+    useFrame(() => (mesh.current.rotation.z = mesh.current.rotation.y += 0.006));
+    const { nodes } = useGLTF('/shoe/shoe.gltf')
+
+    return (
+        <group receiveShadow {...props} dispose={null} ref={mesh}>
+            <mesh position={[0.001, 0, 8]}  castShadow geometry={nodes.Model_material0_0.geometry}  >
+                <meshStandardMaterial color='pink' transparent />
+            </mesh>
+        </group>
+
+    );
+};
+
+
 export default function Index() {
+
+
+    
+    // useGLTF.preload('/shoe/shoe.gltf')
+    
     function Loader() {
         const { progress } = useProgress()
         return <Html center>{progress} % loaded</Html>

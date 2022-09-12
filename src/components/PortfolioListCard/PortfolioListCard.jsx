@@ -1,60 +1,85 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useEffect, Suspense } from "react";
+import { Link } from "react-router-dom";
 import Lights from "../../components/Lights/Lights";
-import { OrbitControls } from "@react-three/drei";
-import {Jacket} from "../../components/Jacket/Jacket";
+import { OrbitControls, Html, useGLTF } from "@react-three/drei";
+// import { Jacket } from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
-import {Shoe} from "../../components/Shoe/Shoe";
+// import { Shoe, ShoeInstances } from "../../components/Shoe/Shoe";
+import state from '../state'
+import { Section } from '../../components/Section/Section'
+
+export const Jacket = ({modelPath, props, model}) => {
+    const meshes = useRef(null);
+    useFrame(() => (meshes.current.rotation.y += 0.006));
+    const { nodes, materials } = useGLTF(modelPath)
+    return (
+      <group {...props} dispose={null} ref={meshes}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group position={[0, 0, -5]} rotation={[Math.PI / 2, 0, 0]} scale={1}>
+            <mesh castShadow geometry={nodes.jacket_low_Fabric_0.geometry} material-color={model.mesh}/>
+            <mesh castShadow geometry={nodes.zipper_tab_low_Metal_0.geometry} material={materials.Metal} />
+            <mesh castShadow geometry={nodes.zipper_slider_low_Metal_0.geometry} material={materials.Metal} />
+          </group>
+        </group>
+      </group>
+    );
+  }
+  useGLTF.preload('/jacket/jacket.gltf')
 
 
 
-export default function PortfolioListPage({ model }) {
+const FullPlane = ({ domContent, children, modelPath, positionY, model }) => {
+    // const ref = useRef();
+    // useFrame(() => (ref.current.rotation.y += 0.01));
+    return (
+        <>
+            <Section factor={1.5}>
+                <group position={[0, positionY, 0]}>
+                    {/* middle was at positionY */}
+                    <mesh position={[0, 2.2, 0]}>
+                        {/* middle 0 was at -35 */}
+                        <Jacket modelPath={modelPath} model={model}/>
+                        {/* <Sweater /> */}
+                    </mesh>
+                    <Html portal={domContent} fullscreen>{children}</Html>
+                </group>
+            </Section>
+        </>
+    )
+}
+
+
+export default function PortfolioListCard({ model }) {
+    const domContent = useRef();
+    const scrollArea = useRef();
+    const onScroll = (e) => (state.top.current = e.target.scrollTop)
+    useEffect(() => void onScroll({ target: scrollArea.current }), [])
 
     return (
         <>
-            <div className='new-model'>
-                <div className='wrapper'>
-
-                    <div className='card'>
-                        <div className="product-canvas">
-                            <Canvas shadows
-                                linear
-                                camaera={{ position: [-5, 2, 10], fov: 70 }}>
-                                {/* <group className='invisible-plane'>
-                                    <mesh
-                                        receiveShadow
-                                        rotation={[-Math.PI / 2, 0, 0]}
-                                        position={[0.001, -3.001, 2]}>
-                                        <planeBufferGeometry attach='geometry' args={[100, 100]} />
-                                        <shadowMaterial attach='material' opacity={.3} />
-                                    </mesh>
-                                </group> */}
-                                {model.product === '/shoe/shoe.gltf' ? <Shoe textures={model} />
-                                    : model.product === '/jacket/jacket.gltf' ? <Jacket textures={model} />
-                                        : model.product === '/sweater/sweater.gltf' ? <Sweater textures={model} /> : <Shoe textures={model} />
-
-                                }
-                                <Lights />
-                                <OrbitControls />
-                            </Canvas >
+            <Canvas shadows linear camaera={{ position: [0, 10, 120], fov: 70 }}>
+                <OrbitControls />
+                <Suspense fallback={null}>
+                    <FullPlane  modelPath='/jacket/jacket.gltf' positionY={-2} model={model}>
+                        <div className="container">
+                            <h1 style={{ color: 'white'}} className="title">{model.name}</h1>
+                            <h1 style={{ color: 'white'}} className="title">{model.description}</h1>
+                {/* <Link style={{color: 'white'}} to={`/portfolio/${model._id}`}>Edit</Link> */}
+                {/* <a style={{color: 'white'}} href={`/portfolio/${model._id}`}>Edit</a> */}
                         </div>
-                    </div>
-                    <div>
-                        <label htmlFor="product">Design</label>
-                        <h3 className='capitalize'>{model.product.split('/')[1]}</h3>
-
-                    </div>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <h3 className='capitalize'>{model.name}</h3>
-                    </div>
-
-                    <div>
-                        <label htmlFor="description">Description</label>
-                        <h3 className="desc">{model.description}</h3>
-
-                    </div>
+                    </FullPlane>
+                </Suspense>
+                <Lights />
+            </Canvas >
+            <div>
+                <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
+                    <div style={{ position: 'sticky', top: 0 }} ref={domContent}></div>
+                    <div style={{ height: `${state.sections * 100}vh` }}></div>
                 </div>
             </div>
         </>
     )
 }
+
+// export {Jacket, FullPlane}
