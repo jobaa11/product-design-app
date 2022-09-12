@@ -1,12 +1,22 @@
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Shoe, Instances } from "../../components/Shoe/Shoe";
-import {Jacket} from '../../components/Jacket/Jacket'
+import { Shoe, ShoeInstances } from "../../components/Shoe/Shoe";
+import { Jacket, JacketInstances } from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 import { OrbitControls } from "@react-three/drei";
 import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
+
+// export function AllMesh({nodes, materials}) {
+// return (
+//   <>
+//   <mesh castShadow geometry={nodes.jacket_low_Fabric_0.geometry} material-color='green'/>
+//   <mesh castShadow geometry={nodes.zipper_tab_low_Metal_0.geometry} material={materials.Metal} />
+//   <mesh castShadow geometry={nodes.zipper_slider_low_Metal_0.geometry} material={materials.Metal} />
+//   </>
+// )
+//  }
 
 export default function NewModelPage({ models, setModels, context }) {
   const [modelData, setModelData] = useState({
@@ -37,6 +47,9 @@ export default function NewModelPage({ models, setModels, context }) {
     };
   };
 
+  
+
+
   return (
     <>
       <form className='new-model' onSubmit={handleSubmit}>
@@ -56,11 +69,14 @@ export default function NewModelPage({ models, setModels, context }) {
                 </group>
                 {
                   // modelData.product === '/shoe/shoe.gltf' ? <Shoe textures={modelData.mesh} />
-                  modelData.product === '/shoe/shoe.gltf' ? <Instances>
-                    <Shoe castShadow position={[0.001, 0, 8]}  />
+                  modelData.product === '/shoe/shoe.gltf' ? <ShoeInstances>
+                    <Shoe castShadow position={[0.001, 0, 8]} />
                     <meshStandardMaterial color={modelData.mesh} transparent />
-                  </Instances>
-                    : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
+                  </ShoeInstances>
+                    // : modelData.product === '/jacket/jacket.gltf' ? <Jacket />
+                    : modelData.product === '/jacket/jacket.gltf' ? <JacketInstances>
+                      <Jacket castShadow />
+                    </JacketInstances>
                       : modelData.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
                 }
                 <Lights />

@@ -5,7 +5,7 @@ import { useGLTF, Merged } from "@react-three/drei";
 
 
 const context = createContext()
-export function Instances({ children, ...props }) {
+export function ShoeInstances({ children, ...props }) {
     const { nodes } = useGLTF('/shoe/shoe.gltf');
     const instances = useMemo(() => ({ mat1: nodes['Model_material0_0'] }), [nodes])
     return (
