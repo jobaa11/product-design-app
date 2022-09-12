@@ -1,79 +1,54 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useEffect, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { Canvas } from "@react-three/fiber";
 import Lights from "../../components/Lights/Lights";
-import { OrbitControls, Html, useGLTF } from "@react-three/drei";
-// import { Jacket } from "../../components/Jacket/Jacket";
+import { OrbitControls } from "@react-three/drei";
+import {Jacket} from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
-// import { Shoe, ShoeInstances } from "../../components/Shoe/Shoe";
-
-import { Section } from '../../components/Section/Section'
-
-
-export const Jacket = ({ modelPath, props, model }) => {
-    const meshes = useRef(null);
-    useFrame(() => (meshes.current.rotation.y += 0.006));
-    const { nodes, materials } = useGLTF(modelPath)
-    return (
-        <group {...props} dispose={null} ref={meshes}>
-            <group rotation={[-Math.PI / 2, 0, 0]}>
-                <group position={[0, 0, -5]} rotation={[Math.PI / 2, 0, 0]} scale={1}>
-                    <mesh castShadow geometry={nodes.jacket_low_Fabric_0.geometry} material-color={model.mesh} />
-                    <mesh castShadow geometry={nodes.zipper_tab_low_Metal_0.geometry} material={materials.Metal} />
-                    <mesh castShadow geometry={nodes.zipper_slider_low_Metal_0.geometry} material={materials.Metal} />
-                </group>
-            </group>
-        </group>
-    );
-}
-useGLTF.preload('/jacket/jacket.gltf')
+import {Shoe, ShoeInstances} from "../../components/Shoe/Shoe";
 
 
 
-const FullPlane = ({ bgColor, domContent, children, modelPath, positionY, model }) => {
-    // const [refItem, inView] = useInView({
-    //     threshold: 0
-    // })
-
-    // useEffect(() => {
-    //     inView && (document.body.style.background = bgColor)
-    // })
-    // const ref = useRef();
-    // useFrame(() => (ref.current.rotation.y += 0.01));
-    return (
-        <>
-            <Section factor={1.5}>
-                <group position={[0, positionY, 0]}>
-                    {/* middle was at positionY */}
-                    <mesh position={[0, 2.2, -2.5]}>
-                        {/* middle 0 was at -35 */}
-                        <Jacket modelPath={modelPath} model={model} />
-                        {/* <Sweater /> */}
-                    </mesh>
-                    <Html portal={domContent} fullscreen><div>{children}</div></Html>
-                </group>
-            </Section>
-        </>
-    )
-}
-
-
-export default function PortfolioListCard({ model }) {
-
+export default function PortfolioListPage({ model }) {
 
     return (
         <>
+            <div className='new-model'>
+                <div className='wrapper'>
 
-                    <FullPlane modelPath='/jacket/jacket.gltf' positionY={-2} model={model}>
-                        <div className="container">
-                            <h1 style={{ color: 'white' }} className="title">{model.name}</h1>
-                            <h1 style={{ color: 'white' }} className="title">{model.description}</h1>
+                    <div className='card'>
+                        <div className="product-canvas">
+                            <Canvas shadows
+                                linear
+                                camaera={{ position: [-5, 2, 10], fov: 70 }}>
+                                {model.product === '/shoe/shoe.gltf' ? <ShoeInstances>
+                                <Shoe castShadow position={[0.001, 0, 8]}/> 
+                                <meshStandardMaterial color={model.mesh} transparent />
+                                </ShoeInstances>
+                                    : model.product === '/jacket/jacket.gltf' ? <Jacket textures={model} />
+                                        : model.product === '/sweater/sweater.gltf' ? <Sweater textures={model} /> : <Shoe textures={model} />
+
+                                }
+                                <Lights />
+                                <OrbitControls />
+                            </Canvas >
                         </div>
-                    </FullPlane>
+                    </div>
+                    <div>
+                        <label htmlFor="product">Design</label>
+                        <h3 className='capitalize'>{model.product.split('/')[1]}</h3>
 
-  
+                    </div>
+                    <div>
+                        <label htmlFor="name">Name</label>
+                        <h3 className='capitalize'>{model.name}</h3>
+                    </div>
+
+                    <div>
+                        <label htmlFor="description">Description</label>
+                        <h3 className="desc">{model.description}</h3>
+
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
-
-// export {Jacket, FullPlane}

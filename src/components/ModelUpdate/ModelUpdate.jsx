@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as portfolioAPI from '../../utilities/portfolio-api'
-import {Shoe} from "../../components/Shoe/Shoe";
+import {Shoe, ShoeInstances} from "../../components/Shoe/Shoe";
 import {Jacket} from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
@@ -64,7 +64,8 @@ export default function ModelUpdate(props) {
                     <shadowMaterial attach='material' opacity={.3} />
                   </mesh>
                 </group>
-                {modelUpdate.product === '/shoe/shoe.gltf' ? <Shoe textures={modelUpdate.mesh} />
+                {modelUpdate.product === '/shoe/shoe.gltf' ?  <ShoeInstances><Shoe castShadow position={[0.001, 0, 8]} />
+                                <meshStandardMaterial color={modelUpdate.mesh}/></ShoeInstances>
                   : modelUpdate.product === '/jacket/jacket.gltf' ? <Jacket />
                     : modelUpdate.product === '/sweater/sweater.gltf' ? <Sweater /> : <Shoe />
                 }
