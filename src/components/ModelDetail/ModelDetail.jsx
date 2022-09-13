@@ -41,15 +41,10 @@ export default function ModelDetail({ models, user , setModels}) {
     const navigate = useNavigate();
 
     const handleDelete = async (id) => {
-        try {
             await portfolioAPI.deleteModel(id)
-            setModels(...models)
-            console.log('deleted')
-            navigate('/portfolio')
-        } catch (e) {
-            let err = new Error(e)
-            console.log(err)
-        }
+            setModels([...models])
+            alert('deleted')
+            navigate(-2)
     }
     function Loader() {
         const { progress } = useProgress()

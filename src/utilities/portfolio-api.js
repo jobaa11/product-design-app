@@ -2,10 +2,6 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/portfolio';
 
-// export function newModel(userData) {
-//     return sendRequest(`${BASE_URL}/new`, 'POST', userData)
-// }
-
 export function getAll() {
     return sendRequest(BASE_URL);
 }

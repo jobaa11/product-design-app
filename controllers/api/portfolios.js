@@ -1,8 +1,6 @@
 const Model = require('../../models/model');
 const Portfolio = require('../../models/portfolio')
 
-
-
 module.exports = {
   getAll,
   edit,
@@ -25,7 +23,6 @@ async function getOne(req, res) {
     res.status(401).json(err)
   }
 }
-
 
 async function edit(req, res) {
   try {
