@@ -44,5 +44,6 @@ async function deleteModel(req, res) {
       models: [{ _id: req.params.id }]
     },
   }).exec()
+  res.json('removed')
 }
 

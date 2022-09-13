@@ -42,10 +42,12 @@ export default function ModelDetail({ models, user, setModels }) {
 
     const handleDelete = async (id) => {
         try {
-            await portfolioAPI.deleteModel(id)
-            setModels(...models)
-            console.log('deleted')
-            navigate('/portfolio')
+            let removed = await portfolioAPI.deleteModel(id)
+            if (removed === 'removed') {
+                const currentModels = await portfolioAPI.getAll();
+                setModels([...currentModels])
+                navigate('/portfolio')
+            }
         } catch (e) {
             let err = new Error(e)
             console.log(err)
