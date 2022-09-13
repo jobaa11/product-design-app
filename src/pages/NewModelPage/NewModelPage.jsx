@@ -47,7 +47,7 @@ export default function NewModelPage({ models, setModels, context }) {
       let model = await modelsApi.newModel(modelData)
       setModelData(model)
       navigate('/portfolio')
-      setModels([ ...models, model ])
+      setModels([model, ...models,  ])
     } catch (e) {
       let err = new Error(e)
       console.log(err)

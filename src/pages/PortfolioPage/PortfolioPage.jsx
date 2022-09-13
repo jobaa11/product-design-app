@@ -3,7 +3,6 @@ import PortfolioListCard from "../../components/PortfolioListCard/PortfolioListC
 
 export default function Portfolio({ models, setModels }) {
 
-    // console.log(models, 'models')
     return (
         <>
             {models.map((model) =>

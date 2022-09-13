@@ -41,14 +41,15 @@ export default function ModelUpdate(props, models) {
       evt.preventDefault();
       let model = await portfolioAPI.edit(id, modelUpdate)
       setModelUpdate(model)
+      const currentModels = props.models.filter((m) => m._id !== model._id)
+      props.setModels([model, ...currentModels])
       navigate('/portfolio')
-      props.setModels([...props.models, model])
     } catch (e) {
       let err = new Error(e)
       console.log(err)
     }
   }
-  console.log( props.models, 'hello')
+  console.log(props.models, 'hello')
 
   return (
     <>
