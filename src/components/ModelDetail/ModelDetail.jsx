@@ -33,7 +33,6 @@ export default function ModelDetail({ models, user , setModels}) {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
             const objModel = await portfolioAPI.getOne(id);
-            console.log(object, objModel)
                 setModel(...object);
         }
         getModel(id);
@@ -56,10 +55,6 @@ export default function ModelDetail({ models, user , setModels}) {
         const { progress } = useProgress()
         return <Html center>{progress} % loaded</Html>
       }
-
-
-
-      console.log(models, model, 'my models')
 
     return (
         <>
