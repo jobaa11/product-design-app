@@ -41,11 +41,12 @@ async function edit(req, res) {
 }
 
 async function deleteModel(req, res) {
-  model = await Model.findByIdAndDelete(req.params.id)
-  await Portfolio.updateOne({ user: req.user._id }), {
+  const model = await Model.findByIdAndDelete(req.params.id)
+  const portfolio = await Portfolio.updateOne({ user: req.user._id }, {
     $pullAll: {
       models: [{ _id: req.params.id }]
     },
-  }
+  }).exec()
+  console.log(model, portfolio, 'here')
 }
 

@@ -49,7 +49,6 @@ export default function ModelUpdate(props, models) {
       console.log(err)
     }
   }
-  console.log(props.models, 'hello')
 
   return (
     <>

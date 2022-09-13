@@ -9,6 +9,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../UpdateModelPage/UpdateModelPage'
+import About from '../About/About';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -30,7 +31,7 @@ export default function App() {
           <Routes>
             <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
             <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser}  models={models} setModels={setModels}/>}  />
-            {/* <Route path='/about' element={<About/>} /> */}
+            <Route path='/about' element={<About/>} />
             <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser} key={user._id}/>} />
             <Route path='/portfolio/:id' element={<UpdateModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
           </Routes>
