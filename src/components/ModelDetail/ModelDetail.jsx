@@ -33,6 +33,7 @@ export default function ModelDetail({ models, user , setModels}) {
         async function getModel(id) {
             const object = models.filter((model) => model._id === id);
             const objModel = await portfolioAPI.getOne(id);
+            console.log(object, objModel)
                 setModel(...object);
         }
         getModel(id);
@@ -41,15 +42,21 @@ export default function ModelDetail({ models, user , setModels}) {
     const navigate = useNavigate();
 
     const handleDelete = async (id) => {
+        try {
             await portfolioAPI.deleteModel(id)
-            setModels([...models])
-            alert('deleted')
-            navigate(-2)
+            setModels(...models)
+            console.log('deleted')
+            navigate('/portfolio')
+        } catch (e) {
+            let err = new Error(e)
+            console.log(err)
+        }
     }
     function Loader() {
         const { progress } = useProgress()
         return <Html center>{progress} % loaded</Html>
       }
+
 
     return (
         <>

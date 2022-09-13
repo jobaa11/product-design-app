@@ -4,7 +4,7 @@ import ModelUpdate from '../../components/ModelUpdate/ModelUpdate'
 
 export default function UpdateModelPage({ setUser, models, setModels }) {
   const [showUpdate, setShowUpdate] = useState(true);
-  const myModels = createContext(models)
+  const myModels = createContext()
 
   return (
     <section>

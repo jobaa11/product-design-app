@@ -120,7 +120,7 @@ export default function NewModelPage({ models, setModels, context }) {
           </div>
           <div>
             <label htmlFor="description">Description</label>
-            <textarea maxLength={25} type='text' id='description' name='description' value={modelData.description} onChange={handleChange} />
+            <textarea maxLength={25} type='text' id='description' name='description' required value={modelData.description} onChange={handleChange} />
           </div>
           <button className="create-model-btn" type="submit">Create Design</button>
         </div>

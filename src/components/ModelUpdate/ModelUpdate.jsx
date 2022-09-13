@@ -8,7 +8,7 @@ import { Jacket } from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 
-export default function ModelUpdate(props, models) {
+export default function ModelUpdate(props) {
   let { id } = useParams();
 
 
