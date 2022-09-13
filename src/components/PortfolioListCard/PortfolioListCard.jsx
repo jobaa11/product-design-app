@@ -11,7 +11,7 @@ export default function PortfolioListPage({ model }) {
 
     return (
         <>
-            <div className='new-model'>
+            <div className='new-model' >
                 <div className='wrapper'>
 
                     <div className='card'>

@@ -1,15 +1,14 @@
-import { createContext, useMemo, useContext, useRef  } from "react";
+import { createContext, useMemo, useRef  } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, Merged } from "@react-three/drei";
-import { AllMesh } from "../../pages/NewModelPage/NewModelPage";
 
 
 
 const context = createContext()
 
 export function JacketInstances({ children, ...props }) {
-  const { nodes, materials } = useGLTF('/jacket/jacket.gltf')
-  const instances = useMemo(() => ({ mat1: nodes['jacket_low_Fabric_0'], mat2: nodes['zipper_tab_low_Metal_0'], mat3: nodes['zipper_slider_low_Metal_0'] }), [nodes, materials])
+  const { nodes } = useGLTF('/jacket/jacket.gltf')
+  const instances = useMemo(() => ({ mat1: nodes['jacket_low_Fabric_0'], mat2: nodes['zipper_tab_low_Metal_0'], mat3: nodes['zipper_slider_low_Metal_0'] }), [nodes])
   return (
     <Merged meshes={instances} {...props}>
       {(instances) => <context.Provider value={instances} children={children} />}

@@ -23,13 +23,13 @@ export default function App() {
   }, [user]);
 
   return (
-    <div id="root" className='App'>
+    <div id="root" className='App' >
       <NavBar user={user} setUser={setUser} />
       {user ?
         <>
           <Routes>
             <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
-            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id} models={models} setModels={setModels}/>} />
+            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser}  models={models} setModels={setModels}/>}  />
             {/* <Route path='/about' element={<About/>} /> */}
             <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser} key={user._id}/>} />
             <Route path='/portfolio/:id' element={<UpdateModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
