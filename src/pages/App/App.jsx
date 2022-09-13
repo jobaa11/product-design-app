@@ -29,10 +29,10 @@ export default function App() {
         <>
           <Routes>
             <Route path='/models/new' element={<NewModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
-            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id} models={models} />} />
+            <Route path='/portfolio' element={<Portfolio user={user} setUser={setUser} key={user._id} models={models} setModels={setModels}/>} />
             {/* <Route path='/about' element={<About/>} /> */}
             <Route path='/' element={<Navigate to='/portfolio' user={user} setUser={setUser} key={user._id}/>} />
-            <Route path='/portfolio/:id' element={<UpdateModelPage user={user} setUser={setUser} models={models} />} />
+            <Route path='/portfolio/:id' element={<UpdateModelPage user={user} setUser={setUser} models={models} setModels={setModels}/>} />
           </Routes>
         </>
         :

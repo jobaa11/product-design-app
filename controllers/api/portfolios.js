@@ -32,7 +32,8 @@ async function edit(req, res) {
     const edit = await Model.findByIdAndUpdate(
       { _id: req.params.id, user: req.user.id },
       req.body,
-      { new: true }).exec()
+      { new: true })
+    edit.save()
     res.json(edit)
   } catch (err) {
     res.status(400).json(err)
@@ -41,13 +42,10 @@ async function edit(req, res) {
 
 async function deleteModel(req, res) {
   model = await Model.findByIdAndDelete(req.params.id)
+  await Portfolio.updateOne({ user: req.user._id }), {
+    $pullAll: {
+      models: [{ _id: req.params.id }]
+    },
+  }
 }
 
-// async function deleteModel(req, res) {
-//     const portfolio = await Portfolio.findOne({models: req.params.id})
-//     // const model = await Portfolio.find({models: req.params.id})
-//     await Model.findByIdAndDelete(req.params.id)
-//     Portfolio.deleteOne({_id: portfolio.models._id})
-//     // model
-//     console.log(portfolio, req.params.id)
-// }

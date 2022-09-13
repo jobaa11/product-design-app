@@ -1,10 +1,9 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, Suspense } from 'react'
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useProgress, useGLTF } from "@react-three/drei";
 import * as portfolioAPI from '../../utilities/portfolio-api'
 import Lights from "../../components/Lights/Lights";
-import { Link } from "react-router-dom";
 // import {Jacket} from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import {Shoe, ShoeInstances} from "../../components/Shoe/Shoe";
@@ -26,8 +25,9 @@ const Jacket = ({...props}) => {
       </group>
     );
   }
+  
 
-export default function ModelDetail({ models, user }) {
+export default function ModelDetail({ models, user , setModels}) {
     let { id } = useParams();
     const [model, setModel] = useState([]);
     useEffect(function () {
@@ -46,7 +46,8 @@ export default function ModelDetail({ models, user }) {
     const handleDelete = async (id) => {
         try {
             await portfolioAPI.deleteModel(id)
-            // setModel(model)
+            setModel(model)
+            setModels(...models)
             navigate('/portfolio')
         } catch (e) {
             let err = new Error(e)
@@ -57,6 +58,10 @@ export default function ModelDetail({ models, user }) {
         const { progress } = useProgress()
         return <Html center>{progress} % loaded</Html>
       }
+
+
+
+      console.log(models, model, 'my models')
 
     return (
         <>

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import PortfolioListCard from "../../components/PortfolioListCard/PortfolioListCard";
 
-export default function Portfolio({ models }) {
+export default function Portfolio({ models, setModels }) {
 
+    // console.log(models, 'models')
     return (
         <>
             {models.map((model) =>
