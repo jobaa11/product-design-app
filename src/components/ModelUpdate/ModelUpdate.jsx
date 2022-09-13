@@ -8,7 +8,7 @@ import { Jacket } from '../../components/Jacket/Jacket'
 import Sweater from '../../components/Sweater/Sweater'
 import Lights from "../../components/Lights/Lights";
 
-export default function ModelUpdate(props, { setModels, models }) {
+export default function ModelUpdate(props, { models }) {
   let { id } = useParams();
 
 
@@ -48,7 +48,7 @@ export default function ModelUpdate(props, { setModels, models }) {
       console.log(err)
     }
   }
-  console.log(props.models, 'hello')
+  console.log( models, 'hello')
 
   return (
     <>

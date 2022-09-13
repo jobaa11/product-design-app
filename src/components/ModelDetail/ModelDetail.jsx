@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useProgress, useGLTF } from "@react-three/drei";
 import * as portfolioAPI from '../../utilities/portfolio-api'
 import Lights from "../../components/Lights/Lights";
-// import {Jacket} from "../../components/Jacket/Jacket";
 import Sweater from "../../components/Sweater/Sweater";
 import {Shoe, ShoeInstances} from "../../components/Shoe/Shoe";
 
@@ -35,7 +34,6 @@ export default function ModelDetail({ models, user , setModels}) {
             const object = models.filter((model) => model._id === id);
             const objModel = await portfolioAPI.getOne(id);
             console.log(object, objModel)
-            // if (object === objModel)
                 setModel(...object);
         }
         getModel(id);
@@ -46,8 +44,8 @@ export default function ModelDetail({ models, user , setModels}) {
     const handleDelete = async (id) => {
         try {
             await portfolioAPI.deleteModel(id)
-            setModel(model)
             setModels(...models)
+            console.log('deleted')
             navigate('/portfolio')
         } catch (e) {
             let err = new Error(e)
@@ -73,13 +71,6 @@ export default function ModelDetail({ models, user , setModels}) {
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
                                     <Suspense fallback={<Loader />}>
                                 <group>
-                                    {/* <mesh
-                                        // receiveShadow
-                                        rotation={[-Math.PI / 2, 0, 0]}
-                                        position={[0, -3.003, 2]}>
-                                        <planeBufferGeometry attach='geometry' args={[100, 100]} />
-                                        <shadowMaterial attach='material' opacity={.3} />
-                                    </mesh> */}
                                 </group>
                                 {model.product === '/shoe/shoe.gltf' ? <ShoeInstances><Shoe castShadow position={[0.001, 0, 8]} />
                                 <meshStandardMaterial color={model.mesh}/></ShoeInstances>
@@ -102,7 +93,7 @@ export default function ModelDetail({ models, user , setModels}) {
                     </div>
                 </div>
             </main>
-            <button onClick={(() => handleDelete(id))}>Delete Design</button>
+            <button onClick={() => handleDelete(id)}>Delete Design</button>
             <Link  to={'/portfolio'}>Portfolio</Link>
         </>
     );
