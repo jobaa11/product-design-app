@@ -54,7 +54,6 @@ export default function ModelUpdate(props) {
     <>
       <form className='new-model' onSubmit={handleSubmit}>
         <div className='wrapper'>
-
           <div className='card'>
             <div className="product-canvas">
               <Canvas shadows
@@ -109,7 +108,7 @@ export default function ModelUpdate(props) {
             <label htmlFor="description">Description</label>
             <textarea type='text' id='description' name='description' value={modelUpdate.description} onChange={handleChange} />
           </div>
-          <button className="create-model-btn" type="submit">Update Design</button>
+          <button className="create-model-btn" type="submit">Update</button>
         </div>
       </form>
     </>

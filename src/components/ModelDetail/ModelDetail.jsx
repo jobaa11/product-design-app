@@ -6,12 +6,10 @@ import * as portfolioAPI from '../../utilities/portfolio-api'
 import Lights from "../../components/Lights/Lights";
 import Sweater from "../../components/Sweater/Sweater";
 import { Shoe, ShoeInstances } from "../../components/Shoe/Shoe";
-
+import './ModelDetail.css'
 
 const Jacket = ({ ...props }) => {
-    // const meshes = useRef(null);
-    // useFrame(() => (meshes.current.rotation.y += 0.006));
-    const { nodes } = useGLTF('/jacket/jacket.gltf')
+    const { nodes } = useGLTF('/jacket/jacket.gltf');
     return (
         <group {...props} dispose={null} >
             <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -24,7 +22,6 @@ const Jacket = ({ ...props }) => {
         </group>
     );
 }
-
 
 export default function ModelDetail({ models, user, setModels }) {
     let { id } = useParams();
@@ -42,19 +39,19 @@ export default function ModelDetail({ models, user, setModels }) {
 
     const handleDelete = async (id) => {
         try {
-            let removed = await portfolioAPI.deleteModel(id)
+            let removed = await portfolioAPI.deleteModel(id);
             if (removed === 'removed') {
                 const currentModels = await portfolioAPI.getAll();
                 setModels([...currentModels])
                 navigate('/portfolio')
             }
         } catch (e) {
-            let err = new Error(e)
-            console.log(err)
-        }
+            let err = new Error(e);
+            console.log(err);
+        };
     }
     function Loader() {
-        const { progress } = useProgress()
+        const { progress } = useProgress();
         return <Html center>{progress} % loaded</Html>
     }
 
@@ -67,8 +64,6 @@ export default function ModelDetail({ models, user, setModels }) {
                             <Canvas shadows
                                 camaera={{ position: [-5, 2, 10], fov: 70 }}>
                                 <Suspense fallback={<Loader />}>
-                                    <group>
-                                    </group>
                                     {model.product === '/shoe/shoe.gltf' ? <ShoeInstances><Shoe castShadow position={[0.001, 0, 8]} />
                                         <meshStandardMaterial color={model.mesh} /></ShoeInstances>
                                         : model.product === '/jacket/jacket.gltf' ? <Jacket castShadow colors={{ mesh: model.mesh, stripes: model.stripes, sole: model.sole }} />

@@ -7,7 +7,7 @@ export default function UpdateModelPage({ setUser, models, setModels }) {
   const myModels = createContext()
 
   return (
-    <section>
+    <main>
       <myModels.Provider value={models}>
         {showUpdate ?
           <ModelDetail setUser={setUser} models={models} setModels={setModels} />
@@ -18,6 +18,6 @@ export default function UpdateModelPage({ setUser, models, setModels }) {
           {showUpdate ? 'Update Design' : 'Cancel Updates'}
         </button>
       </myModels.Provider>
-    </section>
+    </main>
   );
 }

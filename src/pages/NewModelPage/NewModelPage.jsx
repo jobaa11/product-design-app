@@ -9,8 +9,6 @@ import * as modelsApi from '../../utilities/models-api'
 import { useNavigate } from "react-router-dom";
 
 const Jacket = ({ ...props }) => {
-  // const meshes = useRef(null);
-  // useFrame(() => (meshes.current.rotation.y += 0.006));
   const { nodes } = useGLTF('/jacket/jacket.gltf')
   return (
     <group {...props} dispose={null} >
@@ -53,7 +51,6 @@ export default function NewModelPage({ models, setModels, context }) {
       console.log(err)
     };
   };
-
 
 
 
