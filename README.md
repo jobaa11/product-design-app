@@ -18,7 +18,7 @@ https://oja-app.herokuapp.com/
           src="https://img.shields.io/badge/-@jobaa11-junglegreen?style=flat&logo=GitHub&logoColor=black">
       </a>
      <a href="https://www.linkedin.com/in/joba-a-ja11/" target="_blank">
-         <img src="https://img.shields.io/badge/-@joba-a-ja11-blue?style=flat&logo=Linkedin&logoColor=black">
+         <img src="https://img.shields.io/badge/-@jobaaja11-blue?style=flat&logo=Linkedin&logoColor=black">
       </a> 
   
   <h1>:pencil: Description</h1>
