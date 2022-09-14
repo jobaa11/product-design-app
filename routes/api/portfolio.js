@@ -6,7 +6,7 @@ const portfoliosCtrl = require('../../controllers/api/portfolios');
 
 router.get('/', portfoliosCtrl.getAll);
 router.get('/:id', portfoliosCtrl.getOne);
-router.put('/:id', portfoliosCtrl.edit)
-router.delete('/:id', portfoliosCtrl.deleteModel)
+router.put('/:id', portfoliosCtrl.edit);
+router.delete('/:id', portfoliosCtrl.deleteModel);
 
 module.exports = router;

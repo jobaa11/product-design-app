@@ -1,4 +1,4 @@
-import { softShadows } from "@react-three/drei";
+import { softShadows } from '@react-three/drei';
 softShadows();
 
 const Lights = () => {
@@ -14,7 +14,8 @@ const Lights = () => {
         shadow-camera-left={-10}
         shadow-camera-right={10}
         shadow-camera-top={10}
-        shadow-camera-bottom={-10} />
+        shadow-camera-bottom={-10}
+      />
       <pointLight position={[-10, 0, -20]} intensity={0.5} />
       <pointLight position={[0, -10, 0]} intensity={1.5} />
       <spotLight position={[10, 15, 10]} angle={0.3} />
@@ -22,13 +23,14 @@ const Lights = () => {
         <mesh
           receiveShadow
           rotation={[-Math.PI / 2, 0, 0]}
-          position={[0.002, -3, 0.002]}>
+          position={[0.002, -3, 0.002]}
+        >
           <planeBufferGeometry attach='geometry' args={[100, 100]} />
-          <shadowMaterial attach='material' opacity={.3} />
+          <shadowMaterial attach='material' opacity={0.3} />
         </mesh>
       </group>
     </>
   );
-}
+};
 
 export default Lights;

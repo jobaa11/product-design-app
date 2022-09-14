@@ -4,14 +4,13 @@
   box-sizing: border-box;
 }
 
-/* CSS Custom Properties */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
+  --white: #ffffff;
+  --tan-1: #fbf9f6;
+  --tan-2: #e7e2dd;
+  --tan-3: #e2d9d1;
+  --tan-4: #d3c1ae;
+  --orange: #f67f00;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -37,9 +36,7 @@ body {
   min-height: 100vh;
   display: flex;
   background: #f15946;
-  background: #A5CFE1;
-  /* overflow-y: visible; */
-  /* overflow-x: hidden; */
+  background: #a5cfe1;
 }
 
 .App {
@@ -49,18 +46,18 @@ body {
 .canvas {
   display: flex;
   margin-left: 29%;
-  height: 100%
+  height: 100%;
 }
 
 select {
   margin: 1vmin;
-  padding: .7vmin;
+  padding: 0.7vmin;
   width: 80%;
   color: var(--white);
   font-size: 2vmin;
   text-decoration: none;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border: 0.1vmin solid var(--tan-2);
+  border-radius: 0.5vmin;
   outline: none;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 70%);
@@ -76,9 +73,9 @@ section {
   position: absolute;
   width: 50%;
   padding: 3vmin;
-  margin-left: .5%;
+  margin-left: 0.5%;
   background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
+  border: 0.1vmin solid var(--tan-3);
   border-radius: 1.8vmin;
   position: absolute;
 }
@@ -89,7 +86,7 @@ section {
   margin-right: 50%;
   margin-top: 320px;
   width: 51%;
-  opacity: .82;
+  opacity: 0.82;
 }
 
 p.error-message {
@@ -115,28 +112,25 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
+  border: 0.1vmin solid var(--tan-3);
+  border-radius: 0.5vmin;
   color: var(--text-dark);
   background-image: none !important;
-  /* prevent lastpass */
   outline: none;
 }
 
 textarea {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
+  border: 0.1vmin solid var(--tan-3);
+  border-radius: 0.5vmin;
   color: var(--text-dark);
   background-image: none !important;
-  /* prevent lastpass */
   outline: none;
-
 }
 
 input:focus {
-  border-color: rgba(0, 0, 0, .7)
+  border-color: rgba(0, 0, 0, 0.7);
 }
 
 button,
@@ -148,8 +142,8 @@ a.button {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border: 0.1vmin solid var(--tan-2);
+  border-radius: 0.5vmin;
   outline: none;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 70%);
@@ -160,21 +154,21 @@ a.button {
 
 button.btn-sm {
   font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
+  padding: 0.6vmin 0.8vmin;
 }
 
 button.btn-xs {
   font-size: 1vmin;
-  padding: .4vmin .5vmin;
+  padding: 0.4vmin 0.5vmin;
 }
 
 button:disabled,
-form:invalid button[type="submit"] {
+form:invalid button[type='submit'] {
   cursor: not-allowed;
   background-color: var(--tan-4);
 }
 
-button[type="submit"] {
+button[type='submit'] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
@@ -184,7 +178,6 @@ header {
   z-index: 99;
   width: 100%;
   padding: 0 30px;
-
 }
 
 .header-main {
@@ -204,7 +197,7 @@ header {
   color: #fff;
 }
 
-nav>ul {
+nav > ul {
   margin-top: 5;
   padding: 0;
   display: flex;
@@ -226,11 +219,11 @@ nav>ul {
   }
 } */
 
-nav>ul>li {
+nav > ul > li {
   list-style: none;
 }
 
-nav>ul>.btn>a {
+nav > ul > .btn > a {
   color: #fff;
   font-weight: 600;
   background: #23232a;
@@ -238,13 +231,13 @@ nav>ul>.btn>a {
   border-radius: 10px;
 }
 
-nav>ul>li>a {
+nav > ul > li > a {
   text-decoration: none;
   color: #fff;
 }
 
-nav>ul>li>a:hover,
-nav>ul>li>a:active {
+nav > ul > li > a:hover,
+nav > ul > li > a:active {
   text-decoration: underline;
 }
 
@@ -267,13 +260,79 @@ nav>ul>li>a:active {
   scroll-snap-points-x: repeat(100%);
 }
 
-/* .snap-inline > * {
-} */
-
-.info-card {
-  color: green;
+.info-card:hover,
+.info-card:active {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px rgba(245, 245, 220, 0.4) solid;
+  background-color: rgba(245, 245, 220, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 2px 2px 2px #3891b4;
 }
 
+.info-card {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border: 3px rgba(245, 245, 220, 0.7) solid;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.portfolio-btn {
+  text-decoration: none;
+}
+
+.description {
+  display: flexbox;
+  max-width: 150px;
+}
+
+.detail-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 3px rgba(245, 245, 220, 0.7) solid;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.new-model-card {
+  justify-content: space-between;
+  /* border: 3px rgba(245, 245, 220, 0.7) solid; */
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.name-labels {
+  text-decoration: underline;
+  text-shadow: #b46138;
+  touch-action: cross-slide-x;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.edit-link {
+  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: none;
+}
+
+.edit-link:hover,
+.edit-link:active {
+  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+}
 
 .new-model {
   display: flex;
@@ -285,7 +344,15 @@ nav>ul>li>a:active {
 
 .wrapper {
   color: white;
+  padding: 120px 120px 0px 120px;
+}
+
+.new-wrapper {
+  color: white;
   padding: 120px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  align-items: center;
 }
 
 .card {
@@ -293,9 +360,9 @@ nav>ul>li>a:active {
   border-radius: 13px;
   box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
   padding: 33px;
-  background-color: #A5CFE2;
+  margin-bottom: 10px;
+  background-color: #a5cfe2;
 }
-
 
 .product-canvas {
   width: 270px;
@@ -311,10 +378,9 @@ nav>ul>li>a:active {
   flex-direction: row;
   justify-content: space-between;
   padding: 2px;
-
 }
 
-.colors>div>input {
+.colors > div > input {
   width: 70px;
   height: 100%;
   border-radius: 12px;
