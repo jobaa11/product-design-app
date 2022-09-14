@@ -1,4 +1,7 @@
+<div align="center">
+<h1>
 # 👟👕 Ọja 👖👡 
+</h1>
 
 
 Oja was inspired for the sole purpose of creativity and innovation. We use 3D-rendered models to design various simulated wardrobe attire. You can save models to share with friends, update each design for business needs, or simply have fun at exploring your imagination...the possibilities are endless!
