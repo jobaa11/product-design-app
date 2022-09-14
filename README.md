@@ -11,6 +11,7 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
 ![MongoDB](https://img.shields.io/badge/-MongoDB-333?style=flat&logo=mongodb)
 ![Express](https://img.shields.io/badge/-Express-333?style=flat&logo=express)
+![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)
 ![Node](https://img.shields.io/badge/-Node.js-333?style=flat&logo=node.js)
 ![Mongoose ODM](https://img.shields.io/badge/-Mongoose_ODM-333?style=flat&logo=mongodb)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript)
