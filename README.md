@@ -5,9 +5,9 @@
   
 https://oja-app.herokuapp.com/
   
-    <h5>Your Name</h5>
+    <h5>Joba Aladeselu</h5>
 
-  <a href="https://www.linkedin.com/in/username/" target="_blank">
+  <a href="[https://www.linkedin.com/in/username/](https://www.linkedin.com/in/joba-a-ja11/)" target="_blank">
   <img
     src="https://img.shields.io/badge/-@username-blue?style=flat&logo=Linkedin&logoColor=white"
   />
