@@ -8,7 +8,6 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
 
 ## :computer: Technologies Used
-A screenshot of your app's landing page and any other screenshots of interest.
 
 ![MongoDB](https://img.shields.io/badge/-MongoDB-333?style=flat&logo=mongodb)
 ![Express](https://img.shields.io/badge/-Express-333?style=flat&logo=express)
