@@ -36,18 +36,18 @@ const Jacket = ({ ...props }) => {
 };
 
 
- function Kicks({...props}) {
-    const mesh = useRef(null);
-  useFrame(() => (mesh.current.rotation.y += 0.006));
-  const { nodes } = useGLTF('/kicks/kicks.gltf')
-  return (
-    <group {...props} dispose={null} ref={mesh}>
-      <mesh castShadow geometry={nodes.TOP.geometry} material-color={props.colors.mesh} scale={[0.76, 1.14, 1.45]} />
-      <mesh castShadow geometry={nodes.MID.geometry} material-color={props.colors.stripes} scale={[0.76, 1.14, 1.45]} />
-      <mesh castShadow geometry={nodes.LACES.geometry} material-color={props.colors.sole} position={[0.39, 0.72, 0.34]} />
-    </group>
-  )
-}
+//  function Kicks({...props}) {
+//     const mesh = useRef(null);
+//   useFrame(() => (mesh.current.rotation.y += 0.006));
+//   const { nodes } = useGLTF('/kicks/kicks.gltf')
+//   return (
+//     <group {...props} dispose={null} ref={mesh}>
+//       <mesh castShadow geometry={nodes.TOP.geometry} material-color={props.colors.mesh} scale={[0.76, 1.14, 1.45]} />
+//       <mesh castShadow geometry={nodes.MID.geometry} material-color={props.colors.stripes} scale={[0.76, 1.14, 1.45]} />
+//       <mesh castShadow geometry={nodes.LACES.geometry} material-color={props.colors.sole} position={[0.39, 0.72, 0.34]} />
+//     </group>
+//   )
+// }
 
 
 
@@ -113,7 +113,7 @@ export default function NewModelPage({ models, setModels, context }) {
                     }}
                     />
                     ) : modelData.product === '/kicks/kicks.gltf' ? (
-                      <Kicks                  
+                      <Sweater                  
                     castShadow
                     colors={{
                     mesh: modelData.mesh,
@@ -173,7 +173,7 @@ export default function NewModelPage({ models, setModels, context }) {
                 onChange={handleChange}
               >
                 <option value='/shoe/shoe.gltf'>Shoe</option>
-                <option value='/kicks/kicks.gltf'>Kicks</option>
+                <option value='/sweater/sweater.gltf'>Hoodie</option>
                 <option value='/jacket/jacket.gltf'>Jacket</option>
               </select>
             </div>
