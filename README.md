@@ -41,7 +41,7 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 ![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
      
-     <details>
+ <details>
   <summary>:bar_chart: ERD</summary>
 
   | Description | Screenshot | 
