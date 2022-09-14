@@ -1,7 +1,7 @@
-# Ọja 
+# 👟👕 Ọja 👖👡 
 
 
-Oja bridges the gap between creativity and innovation. Designed to deliver an interactive experience for the user, we care about 
+Oja bridges the gap between creativity and innovation. We use 3D-rendered models to design various simulated wardrobe attire. You can save models to share with friends, update each design for business needs, or simply just have fun at exploring your imagination...the possibilities are endless!
 
 
 ## :computer: Technologies Used
