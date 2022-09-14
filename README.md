@@ -7,11 +7,7 @@ https://oja-app.herokuapp.com/
   
 <!--    Joba Aladeselu  -->
 
-   <div id="socialbuttons">
-      <a href="https://profpan396.github.io" target="_blank">
-        <img
-          src="https://img.shields.io/badge/-jobaa11.github.io-magenta?style=flat&logo=Blackberry&logoColor=black" />
-      </a>
+
       <br>
       <a href="https://www.github.com/jobaa11/" target="_blank">
         <img
