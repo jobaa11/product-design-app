@@ -7,11 +7,19 @@ https://oja-app.herokuapp.com/
   
 <!--    Joba Aladeselu  -->
 
-  <a href="https://[/www.linkedin.com/in/joba-a-ja11/]" target="_blank">
-  <img
-    src="https://img.shields.io/badge/-@username-blue?style=flat&logo=Linkedin&logoColor=white"
-  />
-  </a>
+   <div id="socialbuttons">
+      <a href="https://profpan396.github.io" target="_blank">
+        <img
+          src="https://img.shields.io/badge/-jobaa11.github.io-magenta?style=flat&logo=Blackberry&logoColor=black" />
+      </a>
+      <br>
+      <a href="https://www.github.com/jobaa11/" target="_blank">
+        <img
+          src="https://img.shields.io/badge/-@jobaa11-junglegreen?style=flat&logo=GitHub&logoColor=black">
+      </a>
+     <a href="https://www.linkedin.com/in/joba-a-ja11/" target="_blank">
+         <img src="https://img.shields.io/badge/-@joba-a-ja11-blue?style=flat&logo=Linkedin&logoColor=black">
+      </a> 
   
   <h1>:pencil: Description</h1>
 
@@ -34,3 +42,45 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 ![Git](https://img.shields.io/badge/-Git-333?style=flat&logo=git)
 ![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
+     
+     <details>
+  <summary>:bar_chart: ERD</summary>
+
+  | Description | Screenshot | 
+  |:------------:|-----------| 
+  | <h3>ERD</h3> | <img
+    src="https://``github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ERD.MYC.png"
+    width="700"
+  /> |
+
+</details>
+
+<details>
+  <summary>:art: Wireframes</summary>
+
+  |    Description    | Screenshot | 
+  |:-----------------:|-------------| 
+  | <h3>Home Page</h3>| <img
+    src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/Homepage.Wireframe.MYC.png"
+    width="700"
+  /> |
+  | <h3 align="center">Profile Page</h3> | <img
+    src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.Wireframe.MYC.png"
+    width="700"
+  /> |
+</details>
+
+<details open>
+  <summary>:gear: Functionality</summary>
+
+  |   Description | Screenshot | 
+  |:-------------:| -----------|
+  | <h3>Feed Page</h3> | <img
+    src="https://github.com/amarpan/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true"
+    width="700"
+  /> |
+  | <h3 align="center">Profile Page</h3> | <img
+    src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png"
+    width="700"
+  /> |
+</details>
