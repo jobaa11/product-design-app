@@ -112,7 +112,7 @@ export default function NewModelPage({ models, setModels, context }) {
                       sole: modelData.sole,
                     }}
                     />
-                    ) : modelData.product === '/kicks/kicks.gltf' ? (
+                    ) : modelData.product === '/sweater/sweater.gltf' ? (
                       <Sweater                  
                     castShadow
                     colors={{
