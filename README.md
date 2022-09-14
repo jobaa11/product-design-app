@@ -8,14 +8,16 @@ https://oja-app.herokuapp.com/
 <!--    Joba Aladeselu  -->
 
 
+  <div id="socialbuttons">
       <br>
       <a href="https://www.github.com/jobaa11/" target="_blank">
         <img
           src="https://img.shields.io/badge/-@jobaa11-junglegreen?style=flat&logo=GitHub&logoColor=black">
       </a>
-     <a href="https://www.linkedin.com/in/joba-a-ja11/" target="_blank">
+     <a href="https://www.linkedin.com/in/oba-a-ja11/" target="_blank">
          <img src="https://img.shields.io/badge/-@jobaaja11-blue?style=flat&logo=Linkedin&logoColor=black">
       </a> 
+  
   
   <h1>:pencil: Description</h1>
 
