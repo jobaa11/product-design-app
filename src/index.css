@@ -37,6 +37,7 @@ body {
   display: flex;
   background: #f15946;
   background: #a5cfe1;
+  overflow: hidden;
 }
 
 .App {

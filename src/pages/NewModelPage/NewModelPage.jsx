@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { useState, useRef} from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
-// import { Jacket, JacketInstances } from '../../components/Jacket/Jacket'
+// import Pants from '../../components/Pants/Pants'
 import Sweater from '../../components/Sweater/Sweater';
 import Lights from '../../components/Lights/Lights';
 import { OrbitControls, useGLTF } from '@react-three/drei';
@@ -34,6 +34,23 @@ const Jacket = ({ ...props }) => {
     </group>
   );
 };
+
+
+ function Kicks({...props}) {
+    const mesh = useRef(null);
+  useFrame(() => (mesh.current.rotation.y += 0.006));
+  const { nodes } = useGLTF('/kicks/kicks.gltf')
+  return (
+    <group {...props} dispose={null} ref={mesh}>
+      <mesh castShadow geometry={nodes.TOP.geometry} material-color={props.colors.mesh} scale={[0.76, 1.14, 1.45]} />
+      <mesh castShadow geometry={nodes.MID.geometry} material-color={props.colors.stripes} scale={[0.76, 1.14, 1.45]} />
+      <mesh castShadow geometry={nodes.LACES.geometry} material-color={props.colors.sole} position={[0.39, 0.72, 0.34]} />
+    </group>
+  )
+}
+
+
+
 
 export default function NewModelPage({ models, setModels, context }) {
   const [modelData, setModelData] = useState({
@@ -94,9 +111,16 @@ export default function NewModelPage({ models, setModels, context }) {
                       stripes: modelData.stripes,
                       sole: modelData.sole,
                     }}
-                  />
-                ) : modelData.product === '/sweater/sweater.gltf' ? (
-                  <Sweater />
+                    />
+                    ) : modelData.product === '/kicks/kicks.gltf' ? (
+                      <Kicks                  
+                    castShadow
+                    colors={{
+                    mesh: modelData.mesh,
+                    stripes: modelData.stripes,
+                    sole: modelData.sole,
+                  }}
+                   />
                 ) : (
                   <Shoe />
                 )}
@@ -149,7 +173,7 @@ export default function NewModelPage({ models, setModels, context }) {
                 onChange={handleChange}
               >
                 <option value='/shoe/shoe.gltf'>Shoe</option>
-                <option value='/sweater/sweater.gltf'>Sweater</option>
+                <option value='/kicks/kicks.gltf'>Kicks</option>
                 <option value='/jacket/jacket.gltf'>Jacket</option>
               </select>
             </div>
