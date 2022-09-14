@@ -64,8 +64,8 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
   |   Description | Screenshot | 
   |:-------------:| -----------|
-  | <h3>Create Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true" width="700" /> |
-  | <h3 align="center">Portfolio Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png" width="700" /> |
+  | <h3>Create Page</h3> | <img src="https://github.com/jobaa11/product-design-app/blob/main/public/Create.png" width="700" /> |
+  | <h3 align="center">Portfolio Page</h3> | <img src="https://github.com/jobaa11/product-design-app/blob/main/public/Portfolio.png" width="700" /> |
 </details>
     
 <h2>:fire: Getting Started</h2>
