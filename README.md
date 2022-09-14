@@ -5,11 +5,11 @@
   
 https://oja-app.herokuapp.com/
   
-   Joba Aladeselu
+  | Joba Aladeselu |
 
   <a href="https://www.linkedin.com/in/joba-a-ja11/" target="_blank">
   <img
-    src="https://img.shields.io/badge/-joba-a-ja11-blue?style=flat&logo=Linkedin&logoColor=white"
+    src="https://img.shields.io/badge/-@joba-a-ja11-blue?style=flat&logo=Linkedin&logoColor=white"
   />
   </a>
 
