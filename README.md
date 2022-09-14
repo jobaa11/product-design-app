@@ -9,9 +9,11 @@ https://oja-app.herokuapp.com/
 
   <a href="https://[/www.linkedin.com/in/joba-a-ja11/]" target="_blank">
   <img
-    src="https://img.shields.io/badge/joba-a-ja11-blue?style=flat&logo=Linkedin&logoColor=white"
+    src="https://img.shields.io/badge/-@username-blue?style=flat&logo=Linkedin&logoColor=white"
   />
   </a>
+  
+  <h1>:pencil: Description</h1>
 
 Oja was inspired for the sole purpose of creativity and innovation. We use 3D-rendered models to design various simulated wardrobe attire. You can save models to share with friends, update each design for business needs, or simply have fun at exploring your imagination...the possibilities are endless!
 
