@@ -2,7 +2,16 @@
 <h1>
 👟👕 Ọja 👖👡 
 </h1>
+  
+https://oja-app.herokuapp.com/
+  
+    <h5>Your Name</h5>
 
+  <a href="https://www.linkedin.com/in/username/" target="_blank">
+  <img
+    src="https://img.shields.io/badge/-@username-blue?style=flat&logo=Linkedin&logoColor=white"
+  />
+  </a>
 
 Oja was inspired for the sole purpose of creativity and innovation. We use 3D-rendered models to design various simulated wardrobe attire. You can save models to share with friends, update each design for business needs, or simply have fun at exploring your imagination...the possibilities are endless!
 
