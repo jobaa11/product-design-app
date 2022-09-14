@@ -36,6 +36,7 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 ![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
 ![Trello](https://img.shields.io/badge/-Trello-333?style=flat&logo=trello)
 ![Heroku](https://img.shields.io/badge/-Heroku-333?style=flat&logo=heroku)
+![JWT](https://img.shields.io/badge/-JSON_Web_Tokens-05122A?style=flat&logo=jsonwebtokens)
 ![Markdown](https://img.shields.io/badge/-Markdown-333?style=flat&logo=markdown)
 ![Git](https://img.shields.io/badge/-Git-333?style=flat&logo=git)
 ![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
@@ -46,7 +47,7 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
   | Description | Screenshot | 
   |:------------:|-----------| 
-  | <h3>ERD</h3> | <img src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ERD.MYC.png" width="700" /> |
+  | <h3>ERD</h3> | <img src="https://github.com/jobaa11/product-design-app/blob/main/public/P4_ERD.jpeg" width="700" /> |
 
 </details>
 
@@ -55,10 +56,7 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
   |    Description    | Screenshot | 
   |:-----------------:|-------------| 
-  | <h3>Home Page</h3>| <img src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/Homepage.Wireframe.MYC.png" width="700"/> || <h3 align="center">Portfolio Page</h3> | <img
-    src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.Wireframe.MYC.png"
-    width="700"
-  /> |
+  | <h3>Home Page</h3>| <img src="https://github.com/jobaa11/product-design-app/blob/main/public/Index.jpeg" width="700"/> || <h3 align="center">Portfolio Page</h3> | <img src="https://github.com/jobaa11/product-design-app/blob/main/public/Portfolio.jpeg" width="700" /> |
 </details>
 
 <details open>
@@ -69,3 +67,48 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
   | <h3>Create Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true" width="700" /> |
   | <h3 align="center">Portfolio Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png" width="700" /> |
 </details>
+    
+<h2>:fire: Getting Started</h2>
+
+<h3>:calling: Instructions</h3>
+<details open>
+  <summary>How to Create a Model</summary>
+  <ol>
+    <li>
+      Type in the name of your model, description, & each of the 3 different color paletes.
+    </li>
+    <li>
+      Click on "Create Model" to add your model to your portfolio.
+    </li>
+    <li>Click on the "edit" link to delete or update a model.</li>
+  </ol>
+</details>
+
+
+
+<details>
+  <h3>:link: Links</h3>
+  <summary>Trello Board</summary>
+  <a href="https://trello.com/b/96ikdQ4Y/sei-capstone-project"
+    >https://trello.com/b/96ikdQ4Y/sei-capstone-project</a
+  >
+</details>
+
+<details open>
+  <summary>Deployed Link (Heroku)</summary>
+  <a href="https://oja-app.herokuapp.com/"
+    >https://oja-app.herokuapp.com/</a
+  >
+</details>
+    
+## :fast_forward: Next Steps
+
+### Upcoming Features
+
+- [x] Add rotation functionality
+
+- [ ] Add download models section
+
+- [ ] Add more models
+
+- [ ] ~~Add Sketchfab API Integration~~
