@@ -8,7 +8,6 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../UpdateModelPage/UpdateModelPage';
-import About from '../About/About';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -54,7 +53,6 @@ export default function App() {
                   />
                 }
               />
-              <Route path='/about' element={<About />} />
               <Route
                 path='/'
                 element={

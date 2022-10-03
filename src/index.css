@@ -37,7 +37,21 @@ body {
   display: flex;
   background: #f15946;
   background: #a5cfe1;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.media-scroller {
+  display: grid;
+  /* grid-template-rows: 2fr 2fr 2fr; */
+  /* grid-auto-rows: auto; */
+  grid-auto-flow: row;
+}
+
+header {
+  /* position: absolute; */
+  z-index: 99;
+  width: 100%;
+  padding: 0 30px;
 }
 
 .App {
@@ -174,12 +188,7 @@ button[type='submit'] {
   margin: 1vmin 0 0;
 }
 
-header {
-  position: absolute;
-  z-index: 99;
-  width: 100%;
-  padding: 0 30px;
-}
+
 
 .header-main {
   display: flex;
@@ -204,21 +213,6 @@ nav > ul {
   display: flex;
 }
 
-/* @media (width < 50%) {
-  nav>ul {
-    margin-top: 5;
-    padding: 0;
-    display: block;
-  }
-}
-
-@media (width < 50%) {
-  nav>ul>li>a {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-  }
-} */
 
 nav > ul > li {
   list-style: none;
@@ -252,14 +246,7 @@ nav > ul > li > a:active {
   text-decoration: none;
 }
 
-.media-scroller {
-  display: grid;
-  grid-auto-flow: column;
-  scroll-snap-type: inline mandatory;
-  overflow-x: scroll;
-  scroll-snap-align: start;
-  scroll-snap-points-x: repeat(100%);
-}
+
 
 .info-card:hover,
 .info-card:active {
@@ -340,7 +327,6 @@ nav > ul > li > a:active {
   justify-content: center;
   letter-spacing: 2px;
   font-weight: 300;
-  overflow: auto;
 }
 
 .wrapper {

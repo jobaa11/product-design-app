@@ -32,14 +32,6 @@ export default function NavBar({ user, setUser }) {
             )}
             {user ? (
               <li className='links'>
-                <Link to='/about'>about us</Link>
-                &nbsp; | &nbsp;
-              </li>
-            ) : (
-              ''
-            )}
-            {user ? (
-              <li className='links'>
                 <Link to='' onClick={handleLogOut}>
                   log out
                 </Link>
@@ -49,8 +41,8 @@ export default function NavBar({ user, setUser }) {
               ''
             )}
             <li className='btn'>
-              <Link to={user ? '/models/new' : '/about'}>
-                {user ? 'design' : 'about us'}
+              <Link to='/models/new' >
+                design
               </Link>
             </li>
           </ul>
