@@ -1,5 +1,5 @@
-import { useState, useRef} from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useState} from 'react';
+import { Canvas  } from '@react-three/fiber';
 import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
 // import Pants from '../../components/Pants/Pants'
 import Sweater from '../../components/Sweater/Sweater';
@@ -70,7 +70,7 @@ export default function NewModelPage({ models, setModels, context }) {
     <>
       <form className='new-model' onSubmit={handleSubmit}>
         <div className='new-wrapper'>
-          <div className='card'>
+          <div className='new-card'>
             <div className='product-canvas'>
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <group className='invisible-plane'>

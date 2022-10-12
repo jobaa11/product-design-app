@@ -7,12 +7,14 @@ import Sweater from '../../components/Sweater/Sweater';
 import Lights from '../../components/Lights/Lights';
 
 export default function PortfolioListPage({ model }) {
+
+
   return (
     <>
-      <div className='new-model'>
+      <div  className='new-model'>
         <div className='wrapper'>
-          <div className='card'>
-            <div className='product-canvas'>
+          <div className='card-list'>
+            <div  className='product-canvas-list'>
               <Canvas
                 shadows
                 linear

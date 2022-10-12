@@ -9,6 +9,7 @@ import NewModelPage from '../NewModelPage/NewModelPage';
 import Portfolio from '../PortfolioPage/PortfolioPage';
 import UpdateModelPage from '../UpdateModelPage/UpdateModelPage';
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [models, setModels] = useState([]);
@@ -25,7 +26,7 @@ export default function App() {
   );
 
   return (
-    <div id='root' className='App'>
+    <div id='main' className='App'>
       <NavBar user={user} setUser={setUser} />
       {user ? (
         <>

@@ -1,14 +1,18 @@
 import PortfolioListCard from '../../components/PortfolioListCard/PortfolioListCard';
 import { Link } from 'react-router-dom';
-// import './Portfolio.css'
+
 
 export default function Portfolio({ models, setModels }) {
+
+
   return (
     <>
+    <div className='portfolio-wrapper'>
       {models.length > 0 ? (
         models.map((model) => (
           <div className='portfolio' key={model._id}>
             <PortfolioListCard model={model} />
+            
           </div>
         ))
       ) : (
@@ -20,6 +24,8 @@ export default function Portfolio({ models, setModels }) {
           </button>
         </>
       )}
+      </div>
+      
     </>
   );
 }
