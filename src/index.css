@@ -244,7 +244,9 @@ ul>div {
 
 .navbar {
   --bs-navbar-active-color: (var(--white));
+  --bs-navbar-hover-color: rgba(255, 255, 255, 0.7);
 }
+
 
 
 nav>ul>li {
@@ -278,7 +280,6 @@ ul>div>a:active {
   border-radius: 10px;
   text-decoration: none;
 }
-
 
 
 .info-card:hover,
@@ -347,6 +348,7 @@ ul>div>a:active {
 .left {
   border: 1px solid black;
 }
+
 .edit-link {
   font-weight: 900;
   text-decoration: none;
@@ -455,4 +457,9 @@ ul>div>a:active {
 
 .desc::first-letter {
   text-transform: capitalize;
+}
+
+.offcanvas-backdrop {
+  height: 100%;
+  width: 100%;
 }

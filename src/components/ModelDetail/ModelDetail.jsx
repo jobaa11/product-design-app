@@ -73,7 +73,7 @@ export default function ModelDetail({ models, user, setModels }) {
     <>
       <main className='new-model'>
         <div className='wrapper'>
-          <div className='card'>
+          <div className='new-card'>
             <div className='product-canvas'>
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <Suspense fallback={<Loader />}>

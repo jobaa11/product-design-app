@@ -55,7 +55,7 @@ export default function ModelUpdate(props) {
     <>
       <form className='new-model' onSubmit={handleSubmit}>
         <div className='new-wrapper'>
-          <div className='card'>
+          <div className='new-card'>
             <div className='product-canvas'>
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <group>

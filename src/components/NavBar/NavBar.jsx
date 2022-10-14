@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -32,7 +31,7 @@ export default function NavBar({ user, setUser }) {
               </Offcanvas.Header>
               <Offcanvas.Body  bg='transparent' style={{ background: 'rgba(165, 207, 225, 0.0)' }} >
                 <Nav className='me-auto ul' defaultActiveKey='/portfolio' as='ul'>
-                  <Stack direction="horizontal" gap={0} minBreakpoint-md>
+                  <Stack direction="horizontal" gap={0} minbreakpoint-md='true'>
                     {user ? (
                       <Nav.Item className='li'>
                         welcome,{' '}
