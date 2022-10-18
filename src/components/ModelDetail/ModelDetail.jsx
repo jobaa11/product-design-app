@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html, useProgress, useGLTF } from '@react-three/drei';
@@ -72,14 +72,14 @@ export default function ModelDetail({ models, user, setModels }) {
   return (
     <>
       <main className='new-model'>
-        <div className='wrapper'>
+        <div className='detail-wrapper'>
           <div className='new-card'>
             <div className='product-canvas'>
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <Suspense fallback={<Loader />}>
                   {model.product === '/shoe/shoe.gltf' ? (
                     <ShoeInstances>
-                      <Shoe castShadow position={[0.001, 0, 8]} />
+                      <Shoe castShadow  />
                       <meshStandardMaterial color={model.mesh} />
                     </ShoeInstances>
                   ) : model.product === '/jacket/jacket.gltf' ? (
@@ -104,7 +104,7 @@ export default function ModelDetail({ models, user, setModels }) {
               </Canvas>
             </div>
           </div>
-          <div className='detail-card'>
+          <div className='info-card'>
             <div className='capitalize'>
               <label className='name-labels' htmlFor='name'>
                 Name
@@ -122,15 +122,6 @@ export default function ModelDetail({ models, user, setModels }) {
       </main>
       <button className='update-btn' onClick={() => handleDelete(id)}>
         Delete Design
-      </button>
-      <button className='update-btn'>
-        <Link
-          className='portfolio-btn'
-          style={{ color: 'white' }}
-          to={'/portfolio'}
-        >
-          Portfolio
-        </Link>
       </button>
     </>
   );

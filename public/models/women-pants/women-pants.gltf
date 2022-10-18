@@ -1,0 +1,287 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "WOMEN SPORTS PANTS",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.32075995206832886,
+                0.32075995206832886,
+                0.19935809075832367
+            ],
+            "translation" : [
+                -0.00010230903717456385,
+                0.8103017210960388,
+                0.1637040376663208
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "MAIN",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.38005149364471436,
+                    0.38005149364471436,
+                    0.38005149364471436,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "HIGHLIGHTS",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.5399914979934692,
+                    0.5175702571868896,
+                    0.8000000715255737,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "linen",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.05087028816342354,
+                    0.05087028816342354,
+                    0.05087028816342354,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Plane",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 71410,
+            "max" : [
+                0.6649355292320251,
+                -0.06581100821495056,
+                2.6957504749298096
+            ],
+            "min" : [
+                -0.6642755270004272,
+                -0.9539761543273926,
+                -0.9253746271133423
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 71410,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 71410,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 405840,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 10462,
+            "max" : [
+                0.6604376435279846,
+                -0.047668296843767166,
+                2.76574969291687
+            ],
+            "min" : [
+                -0.6592674255371094,
+                -0.9543819427490234,
+                -0.9294170141220093
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 10462,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 10462,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 51936,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 1445,
+            "max" : [
+                0.5996740460395813,
+                -0.06740014255046844,
+                -0.6486415863037109
+            ],
+            "min" : [
+                -0.5973577499389648,
+                -0.9543819427490234,
+                -0.7496123909950256
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 1445,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 1445,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 6144,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 856920,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 856920,
+            "byteOffset" : 856920
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 571280,
+            "byteOffset" : 1713840
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1623360,
+            "byteOffset" : 2285120
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 125544,
+            "byteOffset" : 3908480
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 125544,
+            "byteOffset" : 4034024
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 83696,
+            "byteOffset" : 4159568
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 103872,
+            "byteOffset" : 4243264
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 17340,
+            "byteOffset" : 4347136
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 17340,
+            "byteOffset" : 4364476
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 11560,
+            "byteOffset" : 4381816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12288,
+            "byteOffset" : 4393376
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 4405664,
+            "uri" : "women-pants.bin"
+        }
+    ]
+}

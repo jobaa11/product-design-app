@@ -70,7 +70,7 @@ export default function ModelUpdate(props) {
                 </group>
                 {modelUpdate.product === '/shoe/shoe.gltf' ? (
                   <ShoeInstances>
-                    <Shoe castShadow position={[0.001, 0, 8]} />
+                    <Shoe castShadow  />
                     <meshStandardMaterial color={modelUpdate.mesh} />
                   </ShoeInstances>
                 ) : modelUpdate.product === '/jacket/jacket.gltf' ? (

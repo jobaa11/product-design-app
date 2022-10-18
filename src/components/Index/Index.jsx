@@ -18,7 +18,6 @@ const Shoe = (props) => {
   return (
     <group receiveShadow {...props} dispose={null} ref={mesh}>
       <mesh
-        position={[0.001, 0, 8]}
         castShadow
         geometry={nodes.Model_material0_0.geometry}
       >

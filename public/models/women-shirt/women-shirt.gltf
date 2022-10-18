@@ -1,0 +1,281 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "shirt arms",
+            "scale" : [
+                1,
+                1,
+                0.8622140884399414
+            ],
+            "translation" : [
+                0.4990730285644531,
+                11.438956260681152,
+                -0.5188394784927368
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "linen",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.5028864741325378,
+                    0.39157259464263916,
+                    0.5271153450012207,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "shirt main",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.7077571749687195,
+                    0.4558311700820923,
+                    0.8000000715255737,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "inner shirt",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.79147869348526,
+                    0.509242057800293,
+                    0.8000000715255737,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.026",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 730,
+            "max" : [
+                1.4553426504135132,
+                -2.6352803707122803,
+                0.4689760208129883
+            ],
+            "min" : [
+                -1.4553426504135132,
+                -3.6126673221588135,
+                -0.43758708238601685
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 730,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 730,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 4320,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 4622,
+            "max" : [
+                1.4915053844451904,
+                -2.4034082889556885,
+                1.6893038749694824
+            ],
+            "min" : [
+                -1.4915053844451904,
+                -5.924044132232666,
+                -1.1607897281646729
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 4622,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 4622,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 25680,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 478,
+            "max" : [
+                0.11201059818267822,
+                -3.1939592361450195,
+                1.7065987586975098
+            ],
+            "min" : [
+                -0.11201059073209763,
+                -5.92045259475708,
+                1.2789561748504639
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 478,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 478,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 2496,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 8760,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8760,
+            "byteOffset" : 8760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5840,
+            "byteOffset" : 17520
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8640,
+            "byteOffset" : 23360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 55464,
+            "byteOffset" : 32000
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 55464,
+            "byteOffset" : 87464
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 36976,
+            "byteOffset" : 142928
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 51360,
+            "byteOffset" : 179904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5736,
+            "byteOffset" : 231264
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5736,
+            "byteOffset" : 237000
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3824,
+            "byteOffset" : 242736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4992,
+            "byteOffset" : 246560
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 251552,
+            "uri" : "women-shirt.bin"
+        }
+    ]
+}

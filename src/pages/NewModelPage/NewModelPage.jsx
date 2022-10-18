@@ -1,39 +1,19 @@
-import { useState} from 'react';
-import { Canvas  } from '@react-three/fiber';
-import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
-// import Pants from '../../components/Pants/Pants'
-import Sweater from '../../components/Sweater/Sweater';
-import Lights from '../../components/Lights/Lights';
-import { OrbitControls, useGLTF } from '@react-three/drei';
-import * as modelsApi from '../../utilities/models-api';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import * as modelsApi from '../../utilities/models-api';
+import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
+import Hoodie from '../../components/Hoodie/Hoodie';
+import Skirt from '../../components/Skirt/Skirt';
+import Kicks from '../../components/Kicks/Kicks';
+import WomenShirt from '../../components/WomenShirt/WomenShirt';
+import WomenPants from '../../components/WomenPants/WomenPants';
+import Sweater from '../../components/Sweater/Sweater';
+import Shirt from '../../components/Shirt/Shirt';
+import Lights from '../../components/Lights/Lights';
 
-const Jacket = ({ ...props }) => {
-  const { nodes } = useGLTF('/jacket/jacket.gltf');
-  return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group position={[0, 0, -5]} rotation={[Math.PI / 2, 0, 0]} scale={1}>
-          <mesh
-            castShadow
-            geometry={nodes.jacket_low_Fabric_0.geometry}
-            material-color={props.colors.mesh}
-          />
-          <mesh
-            castShadow
-            geometry={nodes.zipper_tab_low_Metal_0.geometry}
-            material={props.colors.stripes}
-          />
-          <mesh
-            castShadow
-            geometry={nodes.zipper_slider_low_Metal_0.geometry}
-            material={props.colors.sole}
-          />
-        </group>
-      </group>
-    </group>
-  );
-};
+
 
 
 
@@ -85,30 +65,28 @@ export default function NewModelPage({ models, setModels, context }) {
                 </group>
                 {modelData.product === '/shoe/shoe.gltf' ? (
                   <ShoeInstances>
-                    <Shoe castShadow position={[0.001, 0, 8]} />
+                    <Shoe mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
                     <meshStandardMaterial color={modelData.mesh} transparent />
                   </ShoeInstances>
-                ) : modelData.product === '/jacket/jacket.gltf' ? (
-                  <Jacket
-                    castShadow
-                    colors={{
-                      mesh: modelData.mesh,
-                      stripes: modelData.stripes,
-                      sole: modelData.sole,
-                    }}
-                    />
-                    ) : modelData.product === '/sweater/sweater.gltf' ? (
-                      <Sweater                  
-                    castShadow
-                    colors={{
-                    mesh: modelData.mesh,
-                    stripes: modelData.stripes,
-                    sole: modelData.sole,
-                  }}
-                   />
-                ) : (
-                  <Shoe />
-                )}
+                ) : modelData.product === '/hoodie/hoodie.gltf' ? (
+                  <Hoodie
+                  mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                ) : modelData.product === '/skirt/skirt.gltf' ? (
+                  <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                ) : modelData.product === '/kicks/kicks.gltf' ? (
+                  <Kicks mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                ) : modelData.product === '/women-shirt/women-shirt.gltf' ? (
+                  <WomenShirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                ) : modelData.product === '/shirt/shirt.gltf' ? (
+                  <Shirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                ) : modelData.product === '/women-pants/women-pants.gltf' ? (
+                  <WomenPants scale={4.5} mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                )
+                  : modelData.product === '/sweater/sweater.gltf' ? (
+                    <Sweater />
+                  ) : (
+                    <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                  )}
                 <Lights />
                 <OrbitControls />
               </Canvas>
@@ -158,8 +136,12 @@ export default function NewModelPage({ models, setModels, context }) {
                 onChange={handleChange}
               >
                 <option value='/shoe/shoe.gltf'>Shoe</option>
-                <option value='/sweater/sweater.gltf'>Hoodie</option>
-                <option value='/jacket/jacket.gltf'>Jacket</option>
+                <option value='/hoodie/hoodie.gltf'>Hoodie</option>
+                <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
+                <option value='/shirt/shirt.gltf'>Shirt (M)</option>
+                <option value='/skirt/skirt.gltf'>Skirt</option>
+                <option value='/women-pants/women-pants.gltf'>Leggings (W)</option>
+                <option value='/kicks/kicks.gltf'>Kicks</option>
               </select>
             </div>
             <div>

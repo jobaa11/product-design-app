@@ -1,226 +1,163 @@
 {
-  "accessors": [
-    {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 41648,
-      "max": [
-        1.550741195678711,
-        1.0635185241699219,
-        -7.180660724639893
-      ],
-      "min": [
-        -1.7976913452148438,
-        -0.8659849166870117,
-        -8.87520980834961
-      ],
-      "type": "VEC3"
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
     },
-    {
-      "bufferView": 2,
-      "byteOffset": 499776,
-      "componentType": 5126,
-      "count": 41648,
-      "max": [
-        0.9998675584793091,
-        0.9999865889549255,
-        0.9999629259109497
-      ],
-      "min": [
-        -0.9999648928642273,
-        -0.9999451637268066,
-        -0.9999634623527527
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 41648,
-      "max": [
-        0.991991400718689,
-        0.9997696876525879
-      ],
-      "min": [
-        0.00011505743896123022,
-        5.37341766175814e-05
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "componentType": 5125,
-      "count": 240204,
-      "type": "SCALAR"
-    }
-  ],
-  "asset": {
-    "extras": {
-      "author": "matousekfoto (https://sketchfab.com/matousekfoto)",
-      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/pegasus-trail-0938bb5f909f4070ae9281b3e37673f1",
-      "title": "Pegasus Trail"
-    },
-    "generator": "Sketchfab-12.67.0",
-    "version": "2.0"
-  },
-  "bufferViews": [
-    {
-      "buffer": 0,
-      "byteLength": 960816,
-      "name": "floatBufferViews",
-      "target": 34963
-    },
-    {
-      "buffer": 0,
-      "byteLength": 333184,
-      "byteOffset": 960816,
-      "byteStride": 8,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 999552,
-      "byteOffset": 1294000,
-      "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    }
-  ],
-  "buffers": [
-    {
-      "byteLength": 2293552,
-      "uri": "scene.bin"
-    }
-  ],
-  "extensionsUsed": [
-    "KHR_materials_unlit"
-  ],
-  "images": [
-    {
-      "uri": ""
-    }
-  ],
-  "materials": [
-    {
-      "doubleSided": true,
-      "extensions": {
-        "KHR_materials_unlit": {}
-      },
-      "name": "material0",
-      "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 0
-        },
-        "metallicFactor": 0.0
-      }
-    }
-  ],
-  "meshes": [
-    {
-      "name": "Model_material0_0",
-      "primitives": [
+    "scene" : 0,
+    "scenes" : [
         {
-          "attributes": {
-            "NORMAL": 1,
-            "POSITION": 0,
-            "TEXCOORD_0": 2
-          },
-          "indices": 3,
-          "material": 0,
-          "mode": 4
+            "name" : "Scene",
+            "nodes" : [
+                4
+            ]
         }
-      ]
-    }
-  ],
-  "nodes": [
-    {
-      "children": [
-        1
-      ],
-      "matrix": [
-        0.9991916418075562,
-        0.010531078092753879,
-        0.03879585489630699,
-        0.0,
-        -0.01017098966985941,
-        -0.8674486875534059,
-        0.49742269515991194,
-        0.0,
-        0.038891810923814774,
-        -0.49741518497467024,
-        -0.8666403889656068,
-        0.0,
-        -0.31332531571388245,
-        11.936777114868162,
-        7.110019683837893,
-        1.0
-      ],
-      "name": "Sketchfab_model"
-    },
-    {
-      "children": [
-        2
-      ],
-      "matrix": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "PegasusTrail.fbx"
-    },
-    {
-      "children": [
-        3
-      ],
-      "name": "RootNode"
-    },
-    {
-      "children": [
-        4
-      ],
-      "name": "Model"
-    },
-    {
-      "mesh": 0,
-      "name": "Model_material0_0"
-    }
-  ],
-  "samplers": [
-    {
-      "magFilter": 9729,
-      "minFilter": 9987,
-      "wrapS": 10497,
-      "wrapT": 10497
-    }
-  ],
-  "scene": 0,
-  "scenes": [
-    {
-      "name": "Sketchfab_Scene",
-      "nodes": [
-        0
-      ]
-    }
-  ],
-  "textures": [
-    {
-      "sampler": 0,
-      "source": 0
-    }
-  ]
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Model_material0_0",
+            "translation" : [
+                0.0008506363374181092,
+                -0.0014640712179243565,
+                0.00010054395534098148
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "Model"
+        },
+        {
+            "children" : [
+                1
+            ],
+            "name" : "RootNode"
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "PegasusTrail.fbx",
+            "rotation" : [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "children" : [
+                3
+            ],
+            "name" : "Sketchfab_model",
+            "rotation" : [
+                0.9660849571228027,
+                9.318239608546719e-05,
+                0.020103735849261284,
+                0.25744059681892395
+            ],
+            "translation" : [
+                0.04251489043235779,
+                8.055105209350586,
+                0.1819758415222168
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "material0",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.4000000059604645
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Model_material0_0",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 41652,
+            "max" : [
+                1.504846215248108,
+                0.9808837175369263,
+                0.768104076385498
+            ],
+            "min" : [
+                -1.8435863256454468,
+                -0.9486197233200073,
+                -0.9264450073242188
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 41652,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 41652,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 240204,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 499824,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 499824,
+            "byteOffset" : 499824
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 333216,
+            "byteOffset" : 999648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 480408,
+            "byteOffset" : 1332864
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1813272,
+            "uri" : "Shoe.bin"
+        }
+    ]
 }

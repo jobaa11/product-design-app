@@ -43,7 +43,17 @@ body {
   display: flex;
   background: #f15946;
   background: var(--background-main);
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.carousel-indicators {
+  top: 560px;
+
+}
+
+.carousel-caption {
+  top: 355px;
+  height:150px;
 }
 
 .auth {
@@ -67,10 +77,6 @@ body {
   ;
 }
 
-.media-scroller {
-  display: grid;
-  height: 100vh;
-}
 
 header {
   z-index: 99;
@@ -248,7 +254,6 @@ ul>div {
 }
 
 
-
 nav>ul>li {
   list-style: none;
 }
@@ -360,7 +365,6 @@ ul>div>a:active {
 .edit-link:active {
   font-weight: 900;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-decoration: underline;
 }
 
 .new-model {
@@ -372,7 +376,8 @@ ul>div>a:active {
 
 .wrapper {
   color: white;
-  padding: 120px 120px 0px 120px;
+  min-width: 85%;
+  height: 100vh;
 }
 
 .new-wrapper {
@@ -380,6 +385,12 @@ ul>div>a:active {
   padding: 120px;
   display: grid;
   grid-template-columns: 2fr 2fr;
+  align-items: center;
+}
+
+.detail-wrapper {
+  padding: 120px;
+  display: grid;
   align-items: center;
 }
 
@@ -441,11 +452,10 @@ ul>div>a:active {
   background-color: rgba(0, 0, 0, 70%);
 }
 
-.portfolio {
+.portfolio-object {
   display: flex;
   flex-direction: column;
 }
-
 
 .capitalize {
   text-transform: capitalize;
@@ -463,3 +473,8 @@ ul>div>a:active {
   height: 100%;
   width: 100%;
 }
+
+/* .portfolio-wrapper {
+  display: grid;
+  grid-auto-columns: ;
+} */

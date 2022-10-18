@@ -30,7 +30,7 @@ export default function App() {
       <NavBar user={user} setUser={setUser} />
       {user ? (
         <>
-          <div className='media-scroller snap-inline'>
+       
             <Routes>
               <Route
                 path='/models/new'
@@ -44,7 +44,7 @@ export default function App() {
                 }
               />
               <Route
-                path='/portfolio'
+                path={'/portfolio'}
                 element={
                   <Portfolio
                     user={user}
@@ -77,7 +77,7 @@ export default function App() {
                 }
               />
             </Routes>
-          </div>
+        
         </>
       ) : (
         <>
