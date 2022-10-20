@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as modelsApi from '../../utilities/models-api';
-import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
+import Shoe from '../../components/Shoe/Shoe';
 import Hoodie from '../../components/Hoodie/Hoodie';
 import Skirt from '../../components/Skirt/Skirt';
 import Kicks from '../../components/Kicks/Kicks';
@@ -64,29 +64,23 @@ export default function NewModelPage({ models, setModels, context }) {
                   </mesh>
                 </group>
                 {modelData.product === '/shoe/shoe.gltf' ? (
-                  <ShoeInstances>
-                    <Shoe mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
-                    <meshStandardMaterial color={modelData.mesh} transparent />
-                  </ShoeInstances>
+                  <Shoe castShadow mesh={modelData.mesh} />
                 ) : modelData.product === '/hoodie/hoodie.gltf' ? (
                   <Hoodie
-                  mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                    mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
                 ) : modelData.product === '/skirt/skirt.gltf' ? (
-                  <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                  <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
                 ) : modelData.product === '/kicks/kicks.gltf' ? (
-                  <Kicks mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                  <Kicks mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
                 ) : modelData.product === '/women-shirt/women-shirt.gltf' ? (
-                  <WomenShirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                  <WomenShirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
                 ) : modelData.product === '/shirt/shirt.gltf' ? (
-                  <Shirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
+                  <Shirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
                 ) : modelData.product === '/women-pants/women-pants.gltf' ? (
-                  <WomenPants scale={4.5} mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
-                )
-                  : modelData.product === '/sweater/sweater.gltf' ? (
-                    <Sweater />
-                  ) : (
-                    <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole}/>
-                  )}
+                  <WomenPants scale={4.5} mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+                ) : (
+                  <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+                )}
                 <Lights />
                 <OrbitControls />
               </Canvas>

@@ -1,38 +1,17 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Html, useProgress, useGLTF } from '@react-three/drei';
+import { OrbitControls, Html, useProgress } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
 import Lights from '../../components/Lights/Lights';
-import Sweater from '../../components/Sweater/Sweater';
-import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
+import Hoodie from '../../components/Hoodie/Hoodie';
+import Skirt from '../../components/Skirt/Skirt';
+import Kicks from '../../components/Kicks/Kicks';
+import WomenShirt from '../../components/WomenShirt/WomenShirt';
+import WomenPants from '../../components/WomenPants/WomenPants';
+import Shirt from '../../components/Shirt/Shirt';
+import Shoe from '../../components/Shoe/Shoe';
 
-const Jacket = ({ ...props }) => {
-  const { nodes } = useGLTF('/jacket/jacket.gltf');
-  return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group position={[0, 0, -5]} rotation={[Math.PI / 2, 0, 0]} scale={1}>
-          <mesh
-            castShadow
-            geometry={nodes.jacket_low_Fabric_0.geometry}
-            material-color={props.colors.mesh}
-          />
-          <mesh
-            castShadow
-            geometry={nodes.zipper_tab_low_Metal_0.geometry}
-            material={props.colors.stripes}
-          />
-          <mesh
-            castShadow
-            geometry={nodes.zipper_slider_low_Metal_0.geometry}
-            material={props.colors.sole}
-          />
-        </group>
-      </group>
-    </group>
-  );
-};
 
 export default function ModelDetail({ models, user, setModels }) {
   let { id } = useParams();
@@ -40,7 +19,7 @@ export default function ModelDetail({ models, user, setModels }) {
   useEffect(
     function () {
       async function getModel(id) {
-        const object = models.filter((model) => model._id === id);
+        const object = await models.filter((model) => model._id === id);
         await portfolioAPI.getOne(id);
         setModel(...object);
       }
@@ -78,25 +57,22 @@ export default function ModelDetail({ models, user, setModels }) {
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <Suspense fallback={<Loader />}>
                   {model.product === '/shoe/shoe.gltf' ? (
-                    <ShoeInstances>
-                      <Shoe castShadow  />
-                      <meshStandardMaterial color={model.mesh} />
-                    </ShoeInstances>
-                  ) : model.product === '/jacket/jacket.gltf' ? (
-                    <Jacket
-                      castShadow
-                      colors={{
-                        mesh: model.mesh,
-                        stripes: model.stripes,
-                        sole: model.sole,
-                      }}
-                    />
-                  ) : model.product === '/sweater/sweater.gltf' ? (
-                    <Sweater />
+                    <Shoe castShadow mesh={model.mesh} />
+                  ) : model.product === '/hoodie/hoodie.gltf' ? (
+                    <Hoodie
+                      mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  ) : model.product === '/skirt/skirt.gltf' ? (
+                    <Skirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  ) : model.product === '/kicks/kicks.gltf' ? (
+                    <Kicks mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  ) : model.product === '/women-shirt/women-shirt.gltf' ? (
+                    <WomenShirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  ) : model.product === '/shirt/shirt.gltf' ? (
+                    <Shirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  ) : model.product === '/women-pants/women-pants.gltf' ? (
+                    <WomenPants scale={4.5} mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
                   ) : (
-                    <ShoeInstances>
-                      <Shoe />
-                    </ShoeInstances>
+                    <Shoe />
                   )}
                   <Lights />
                   <OrbitControls />

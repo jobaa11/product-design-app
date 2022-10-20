@@ -3,9 +3,15 @@ import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
-import { Shoe, ShoeInstances } from '../../components/Shoe/Shoe';
+import Shoe from '../../components/Shoe/Shoe';
 import { Jacket } from '../../components/Jacket/Jacket';
 import Sweater from '../../components/Sweater/Sweater';
+import Hoodie from '../../components/Hoodie/Hoodie';
+import Skirt from '../../components/Skirt/Skirt';
+import Kicks from '../../components/Kicks/Kicks';
+import WomenShirt from '../../components/WomenShirt/WomenShirt';
+import WomenPants from '../../components/WomenPants/WomenPants';
+import Shirt from '../../components/Shirt/Shirt';
 import Lights from '../../components/Lights/Lights';
 
 export default function ModelUpdate(props) {
@@ -69,14 +75,20 @@ export default function ModelUpdate(props) {
                   </mesh>
                 </group>
                 {modelUpdate.product === '/shoe/shoe.gltf' ? (
-                  <ShoeInstances>
-                    <Shoe castShadow  />
-                    <meshStandardMaterial color={modelUpdate.mesh} />
-                  </ShoeInstances>
-                ) : modelUpdate.product === '/jacket/jacket.gltf' ? (
-                  <Jacket />
-                ) : modelUpdate.product === '/sweater/sweater.gltf' ? (
-                  <Sweater />
+                  <Shoe castShadow mesh={modelUpdate.mesh} />
+                ) : modelUpdate.product === '/hoodie/hoodie.gltf' ? (
+                  <Hoodie
+                    mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+                ) : modelUpdate.product === '/skirt/skirt.gltf' ? (
+                  <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+                ) : modelUpdate.product === '/kicks/kicks.gltf' ? (
+                  <Kicks mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+                ) : modelUpdate.product === '/women-shirt/women-shirt.gltf' ? (
+                  <WomenShirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+                ) : modelUpdate.product === '/shirt/shirt.gltf' ? (
+                  <Shirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+                ) : modelUpdate.product === '/women-pants/women-pants.gltf' ? (
+                  <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
                 ) : (
                   <Shoe />
                 )}
@@ -129,8 +141,12 @@ export default function ModelUpdate(props) {
                 onChange={handleChange}
               >
                 <option value='/shoe/shoe.gltf'>Shoe</option>
-                <option value='/sweater/sweater.gltf'>Sweater</option>
-                <option value='/jacket/jacket.gltf'>Jacket</option>
+                <option value='/hoodie/hoodie.gltf'>Hoodie</option>
+                <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
+                <option value='/shirt/shirt.gltf'>Shirt (M)</option>
+                <option value='/skirt/skirt.gltf'>Skirt</option>
+                <option value='/women-pants/women-pants.gltf'>Leggings (W)</option>
+                <option value='/kicks/kicks.gltf'>Kicks</option>
               </select>
             </div>
             <div>
