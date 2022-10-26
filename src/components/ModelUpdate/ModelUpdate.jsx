@@ -4,8 +4,6 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
 import Shoe from '../../components/Shoe/Shoe';
-import { Jacket } from '../../components/Jacket/Jacket';
-import Sweater from '../../components/Sweater/Sweater';
 import Hoodie from '../../components/Hoodie/Hoodie';
 import Skirt from '../../components/Skirt/Skirt';
 import Kicks from '../../components/Kicks/Kicks';
@@ -59,45 +57,78 @@ export default function ModelUpdate(props) {
 
   return (
     <>
+      <Canvas style={{ height: '80%' }} shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
+        <group>
+          <mesh
+            receiveShadow
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, -3.003, 2]}
+          >
+            <planeBufferGeometry attach='geometry' args={[100, 100]} />
+            <shadowMaterial attach='material' opacity={0.3} />
+          </mesh>
+        </group>
+        {modelUpdate.product === '/shoe/shoe.gltf' ? (
+          <Shoe castShadow mesh={modelUpdate.mesh} />
+        ) : modelUpdate.product === '/hoodie/hoodie.gltf' ? (
+          <Hoodie
+            mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        ) : modelUpdate.product === '/skirt/skirt.gltf' ? (
+          <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        ) : modelUpdate.product === '/kicks/kicks.gltf' ? (
+          <Kicks mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        ) : modelUpdate.product === '/women-shirt/women-shirt.gltf' ? (
+          <WomenShirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        ) : modelUpdate.product === '/shirt/shirt.gltf' ? (
+          <Shirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        ) : modelUpdate.product === '/women-pants/women-pants.gltf' ? (
+          <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
+        ) : (
+          <Shoe />
+        )}
+        <Lights />
+        <OrbitControls />
+      </Canvas>
       <form className='new-model' onSubmit={handleSubmit}>
-        <div className='new-wrapper'>
-          <div className='new-card'>
-            <div className='product-canvas'>
-              <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
-                <group>
-                  <mesh
-                    receiveShadow
-                    rotation={[-Math.PI / 2, 0, 0]}
-                    position={[0, -3.003, 2]}
-                  >
-                    <planeBufferGeometry attach='geometry' args={[100, 100]} />
-                    <shadowMaterial attach='material' opacity={0.3} />
-                  </mesh>
-                </group>
-                {modelUpdate.product === '/shoe/shoe.gltf' ? (
-                  <Shoe castShadow mesh={modelUpdate.mesh} />
-                ) : modelUpdate.product === '/hoodie/hoodie.gltf' ? (
-                  <Hoodie
-                    mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
-                ) : modelUpdate.product === '/skirt/skirt.gltf' ? (
-                  <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
-                ) : modelUpdate.product === '/kicks/kicks.gltf' ? (
-                  <Kicks mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
-                ) : modelUpdate.product === '/women-shirt/women-shirt.gltf' ? (
-                  <WomenShirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
-                ) : modelUpdate.product === '/shirt/shirt.gltf' ? (
-                  <Shirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
-                ) : modelUpdate.product === '/women-pants/women-pants.gltf' ? (
-                  <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
-                ) : (
-                  <Shoe />
-                )}
-                <Lights />
-                <OrbitControls />
-              </Canvas>
-            </div>
-            <h3> Choose Color</h3>
-            <div className='colors'>
+        <button className='create-model-btn' type='submit'>
+          Update
+        </button>
+        <div className='description-label'>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            value={modelUpdate.name}
+            required
+            onChange={handleChange}
+          />
+          <input
+            maxLength={12}
+            type='text'
+            id='description'
+            name='description'
+            value={modelUpdate.description}
+            onChange={handleChange}
+          />
+        </div>
+
+          <select
+            className='new-model-select'
+            type='color'
+            id='product'
+            name='product'
+            value={modelUpdate.product}
+            onChange={handleChange}
+          >
+            <option value='/shoe/shoe.gltf'>Shoe</option>
+            <option value='/hoodie/hoodie.gltf'>Hoodie</option>
+            <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
+            <option value='/shirt/shirt.gltf'>Shirt (M)</option>
+            <option value='/skirt/skirt.gltf'>Skirt</option>
+            <option value='/women-pants/women-pants.gltf'>Leggings (W)</option>
+            <option value='/kicks/kicks.gltf'>Kicks</option>
+          </select>
+            <div className='new-colors'>
               <div>
                 <input
                   type='color'
@@ -106,7 +137,6 @@ export default function ModelUpdate(props) {
                   value={modelUpdate.mesh}
                   onChange={handleChange}
                 />
-                <label htmlFor='mesh'>Main</label>
               </div>
               <div>
                 <input
@@ -116,7 +146,6 @@ export default function ModelUpdate(props) {
                   value={modelUpdate.stripes}
                   onChange={handleChange}
                 />
-                <label htmlFor='stripes'>Stripes</label>
               </div>
               <div>
                 <input
@@ -126,56 +155,8 @@ export default function ModelUpdate(props) {
                   value={modelUpdate.sole}
                   onChange={handleChange}
                 />
-                <label htmlFor='sole'>Sole</label>
               </div>
             </div>
-          </div>
-          <div className='new-model-card'>
-            <div>
-              <label htmlFor='product'>Design</label>
-              <select
-                type='color'
-                id='product'
-                name='product'
-                value={modelUpdate.product}
-                onChange={handleChange}
-              >
-                <option value='/shoe/shoe.gltf'>Shoe</option>
-                <option value='/hoodie/hoodie.gltf'>Hoodie</option>
-                <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
-                <option value='/shirt/shirt.gltf'>Shirt (M)</option>
-                <option value='/skirt/skirt.gltf'>Skirt</option>
-                <option value='/women-pants/women-pants.gltf'>Leggings (W)</option>
-                <option value='/kicks/kicks.gltf'>Kicks</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor='name'>Name</label>
-              <input
-                type='text'
-                id='name'
-                name='name'
-                value={modelUpdate.name}
-                required
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor='description'>Description</label>
-              <textarea
-                maxLength={12}
-                type='text'
-                id='description'
-                name='description'
-                value={modelUpdate.description}
-                onChange={handleChange}
-              />
-            </div>
-            <button className='create-model-btn' type='submit'>
-              Update
-            </button>
-          </div>
-        </div>
       </form>
     </>
   );

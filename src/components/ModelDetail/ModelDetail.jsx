@@ -50,7 +50,7 @@ export default function ModelDetail({ models, user, setModels }) {
 
   return (
     <>
-      <main className='new-model'>
+      <main className='detail-model'>
         <div className='detail-wrapper'>
           <div className='new-card'>
             <div className='product-canvas'>
