@@ -7,7 +7,7 @@ export default function UpdateModelPage({ setUser, models, setModels }) {
   const myModels = createContext();
 
   return (
-    <main>
+    <main style={{ height: "100%" }}>
       <myModels.Provider value={models}>
         {showUpdate ? (
           <ModelDetail
@@ -24,10 +24,10 @@ export default function UpdateModelPage({ setUser, models, setModels }) {
           />
         )}
         <button
-          className='design-btn'
+          className={showUpdate ? 'design-btn' : "update-model-btn"}
           onClick={() => setShowUpdate(!showUpdate)}
         >
-          {showUpdate ? 'Update Design' : 'Cancel Updates'}
+          {showUpdate ? 'Update Design' : 'cancel'}
         </button>
       </myModels.Provider>
     </main>

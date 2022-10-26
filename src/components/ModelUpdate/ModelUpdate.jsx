@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
 import Shoe from '../../components/Shoe/Shoe';
 import Hoodie from '../../components/Hoodie/Hoodie';
@@ -67,6 +67,7 @@ export default function ModelUpdate(props) {
             <planeBufferGeometry attach='geometry' args={[100, 100]} />
             <shadowMaterial attach='material' opacity={0.3} />
           </mesh>
+
         </group>
         {modelUpdate.product === '/shoe/shoe.gltf' ? (
           <Shoe castShadow mesh={modelUpdate.mesh} />
@@ -88,13 +89,9 @@ export default function ModelUpdate(props) {
         )}
         <Lights />
         <OrbitControls />
-      </Canvas>
-      <form className='new-model' onSubmit={handleSubmit}>
-        <button className='create-model-btn' type='submit'>
-          Update
-        </button>
-        <div className='description-label'>
+        <Html style={{ left: '-120px', top: '120px' }} className='description-label' as='div'>
           <input
+            placeholder='Name'
             type='text'
             id='name'
             name='name'
@@ -103,14 +100,44 @@ export default function ModelUpdate(props) {
             onChange={handleChange}
           />
           <input
+            placeholder='Description'
             maxLength={12}
             type='text'
             id='description'
             name='description'
+            required
             value={modelUpdate.description}
             onChange={handleChange}
           />
-        </div>
+        </Html>
+      </Canvas>
+      <form className='new-model' onSubmit={handleSubmit}>
+        <div>
+
+          <button className='create-model-btn' type='submit'>
+            update
+          </button>
+          <div className='description-label'>
+            <input hidden
+              placeholder='Name'
+              type='text'
+              id='name'
+              name='name'
+              value={modelUpdate.name}
+              required
+              onChange={handleChange}
+            />
+            <input hidden
+              placeholder='Description'
+              maxLength={12}
+              type='text'
+              id='description'
+              name='description'
+              required
+              value={modelUpdate.description}
+              onChange={handleChange}
+            />
+          </div>
 
           <select
             className='new-model-select'
@@ -128,35 +155,37 @@ export default function ModelUpdate(props) {
             <option value='/women-pants/women-pants.gltf'>Leggings (W)</option>
             <option value='/kicks/kicks.gltf'>Kicks</option>
           </select>
-            <div className='new-colors'>
-              <div>
-                <input
-                  type='color'
-                  id='mesh'
-                  name='mesh'
-                  value={modelUpdate.mesh}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type='color'
-                  id='stripes'
-                  name='stripes'
-                  value={modelUpdate.stripes}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type='color'
-                  id='sole'
-                  name='sole'
-                  value={modelUpdate.sole}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
+
+        </div>
+        <div className='new-colors'>
+          <div>
+            <input
+              type='color'
+              id='mesh'
+              name='mesh'
+              value={modelUpdate.mesh}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type='color'
+              id='stripes'
+              name='stripes'
+              value={modelUpdate.stripes}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type='color'
+              id='sole'
+              name='sole'
+              value={modelUpdate.sole}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
       </form>
     </>
   );

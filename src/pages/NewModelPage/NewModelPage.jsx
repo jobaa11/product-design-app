@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import * as modelsApi from '../../utilities/models-api';
 import Shoe from '../../components/Shoe/Shoe';
 import Hoodie from '../../components/Hoodie/Hoodie';
@@ -75,14 +75,35 @@ export default function NewModelPage({ models, setModels }) {
         )}
         <Lights />
         <OrbitControls />
+        <Html style={{ left: '-120px', top: '120px' }} className='description-label' as='div'>
+          <input
+            placeholder='Name'
+            type='text'
+            id='name'
+            name='name'
+            value={modelData.name}
+            required
+            onChange={handleChange}
+          />
+          <input
+            placeholder='Description'
+            maxLength={12}
+            type='text'
+            id='description'
+            name='description'
+            required
+            value={modelData.description}
+            onChange={handleChange}
+          />
+        </Html>
       </Canvas>
       <form className='new-model' onSubmit={handleSubmit}>
         <div>
-          <button className='create-model-btn' type='submit'>
-            Create
+          <button className='create-model-btn' type={'submit'}>
+            create
           </button>
-          <div className='description-label'>
-            <input
+          <div>
+            <input hidden
               placeholder='Name'
               type='text'
               id='name'
@@ -91,7 +112,7 @@ export default function NewModelPage({ models, setModels }) {
               required
               onChange={handleChange}
             />
-            <input
+            <input hidden
               placeholder='Description'
               maxLength={12}
               type='text'
@@ -102,7 +123,6 @@ export default function NewModelPage({ models, setModels }) {
               onChange={handleChange}
             />
           </div>
-
           <select
             className='new-model-select'
             type='color'
@@ -150,6 +170,7 @@ export default function NewModelPage({ models, setModels }) {
           </div>
         </div>
 
+      <div style={{color: 'white', position: 'relative'}}>click to stop rotation - click & hold to spin model</div>
       </form>
     </>
   );
