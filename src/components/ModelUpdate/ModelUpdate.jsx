@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
-import Shoe from '../../components/Shoe/Shoe';
 import Hoodie from '../../components/Hoodie/Hoodie';
 import Skirt from '../../components/Skirt/Skirt';
 import Kicks from '../../components/Kicks/Kicks';
@@ -69,11 +68,8 @@ export default function ModelUpdate(props) {
           </mesh>
 
         </group>
-        {modelUpdate.product === '/shoe/shoe.gltf' ? (
-          <Shoe castShadow mesh={modelUpdate.mesh} />
-        ) : modelUpdate.product === '/hoodie/hoodie.gltf' ? (
-          <Hoodie
-            mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+        {modelUpdate.product === '/hoodie/hoodie.gltf' ? (
+          <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
         ) : modelUpdate.product === '/skirt/skirt.gltf' ? (
           <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
         ) : modelUpdate.product === '/kicks/kicks.gltf' ? (
@@ -85,7 +81,7 @@ export default function ModelUpdate(props) {
         ) : modelUpdate.product === '/women-pants/women-pants.gltf' ? (
           <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
         ) : (
-          <Shoe />
+          <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
         )}
         <Lights />
         <OrbitControls />
@@ -147,7 +143,6 @@ export default function ModelUpdate(props) {
             value={modelUpdate.product}
             onChange={handleChange}
           >
-            <option value='/shoe/shoe.gltf'>Shoe</option>
             <option value='/hoodie/hoodie.gltf'>Hoodie</option>
             <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
             <option value='/shirt/shirt.gltf'>Shirt (M)</option>

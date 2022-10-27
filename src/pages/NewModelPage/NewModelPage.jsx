@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as modelsApi from '../../utilities/models-api';
-import Shoe from '../../components/Shoe/Shoe';
 import Hoodie from '../../components/Hoodie/Hoodie';
 import Skirt from '../../components/Skirt/Skirt';
 import Kicks from '../../components/Kicks/Kicks';
@@ -19,9 +18,13 @@ export default function NewModelPage({ models, setModels }) {
     stripes: '#C78f8f',
     sole: '#A5CFE1',
     name: '',
-    product: '/shoe/shoe.gltf',
+    product: '/hoodie/hoodie.gltf',
     description: '',
   });
+
+
+
+  const limit = models.length >= 5;
 
   const navigate = useNavigate();
 
@@ -55,11 +58,8 @@ export default function NewModelPage({ models, setModels }) {
             <shadowMaterial attach='material' opacity={0.3} />
           </mesh>
         </group>
-        {modelData.product === '/shoe/shoe.gltf' ? (
-          <Shoe castShadow mesh={modelData.mesh} />
-        ) : modelData.product === '/hoodie/hoodie.gltf' ? (
-          <Hoodie
-            mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+        {modelData.product === '/hoodie/hoodie.gltf' ? (
+          <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
         ) : modelData.product === '/skirt/skirt.gltf' ? (
           <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
         ) : modelData.product === '/kicks/kicks.gltf' ? (
@@ -77,6 +77,8 @@ export default function NewModelPage({ models, setModels }) {
         <OrbitControls />
         <Html style={{ left: '-120px', top: '120px' }} className='description-label' as='div'>
           <input
+            hidden={limit ? true : false}
+            style={{ backgroundColor: 'white', opacity: '0.7' }}
             placeholder='Name'
             type='text'
             id='name'
@@ -86,6 +88,8 @@ export default function NewModelPage({ models, setModels }) {
             onChange={handleChange}
           />
           <input
+            hidden={limit ? true : false}
+            style={{ backgroundColor: 'white', opacity: '0.7' }}
             placeholder='Description'
             maxLength={12}
             type='text'
@@ -99,7 +103,7 @@ export default function NewModelPage({ models, setModels }) {
       </Canvas>
       <form className='new-model' onSubmit={handleSubmit}>
         <div>
-          <button className='create-model-btn' type={'submit'}>
+          <button hidden={limit ? true : false} className='create-model-btn' type={'submit'}>
             create
           </button>
           <div>
@@ -123,7 +127,7 @@ export default function NewModelPage({ models, setModels }) {
               onChange={handleChange}
             />
           </div>
-          <select
+          <select hidden={limit ? true : false}
             className='new-model-select'
             type='color'
             id='product'
@@ -131,7 +135,6 @@ export default function NewModelPage({ models, setModels }) {
             value={modelData.product}
             onChange={handleChange}
           >
-            <option value='/shoe/shoe.gltf'>Shoe</option>
             <option value='/hoodie/hoodie.gltf'>Hoodie</option>
             <option value='/women-shirt/women-shirt.gltf'>Shirt (W)</option>
             <option value='/shirt/shirt.gltf'>Shirt (M)</option>
@@ -143,6 +146,7 @@ export default function NewModelPage({ models, setModels }) {
         <div className='new-colors'>
           <div>
             <input
+              hidden={limit ? true : false}
               type='color'
               id='mesh'
               name='mesh'
@@ -152,6 +156,7 @@ export default function NewModelPage({ models, setModels }) {
           </div>
           <div>
             <input
+              hidden={limit ? true : false}
               type='color'
               id='stripes'
               name='stripes'
@@ -161,6 +166,7 @@ export default function NewModelPage({ models, setModels }) {
           </div>
           <div>
             <input
+              hidden={limit ? true : false}
               type='color'
               id='sole'
               name='sole'
@@ -170,7 +176,7 @@ export default function NewModelPage({ models, setModels }) {
           </div>
         </div>
 
-      <div style={{color: 'white', position: 'relative'}}>click to stop rotation - click & hold to spin model</div>
+        <div style={{ color: limit ? 'black' : 'white', position: 'relative', top: '50px' }}>{limit ? 'You have reached your max of 5 models. Please remove a model and try again.' : 'click to stop rotation - click & hold to spin model'}</div>
       </form>
     </>
   );

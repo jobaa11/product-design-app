@@ -63,7 +63,6 @@ body {
   background: rgb(165, 207, 225, 0.2);
 }
 
-
 header {
   z-index: 99;
   width: 100%;
@@ -170,11 +169,10 @@ input {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-
 }
 
 .description-label>input {
-  box-shadow: 2px 2px 2px #3891b4;
+  box-shadow: 2px 2px 2px rgba(59, 60, 61, 0.5);
   height: 45px !important;
   width: 220px;
   border: black;
@@ -182,16 +180,6 @@ input {
   background-color: rgba(165, 207, 226, 0.4);
 }
 
-
-textarea {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: 0.1vmin solid var(--tan-3);
-  border-radius: 0.5vmin;
-  color: var(--text-dark);
-  background-image: none !important;
-  outline: none;
-}
 
 input:focus {
   border-color: rgba(0, 0, 0, 0.7);
@@ -330,20 +318,6 @@ ul>div>a:active {
   margin-bottom: 10px;
 }
 
-.portfolio-btn {
-  text-decoration: none;
-}
-
-.detail-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 3px rgba(245, 245, 220, 0.7) solid;
-  border-radius: 10px;
-  padding: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin-bottom: 10px;
-}
 
 .name-labels {
   text-shadow: #b46138;
@@ -352,10 +326,6 @@ ul>div>a:active {
   font-weight: 900;
   padding: 0 20px;
   text-align: center;
-}
-
-.left {
-  border: 1px solid black;
 }
 
 .edit-link {
@@ -401,26 +371,11 @@ ul>div>a:active {
   height: 42px;
   width: 42px;
   margin-top: 3px;
-  border: 0.5px solid rgba(0, 0, 0, 0.8);
+  border: 0.5px solid rgba(220, 212, 212, 0.8);
   border-radius: 2.5px;
   padding: 0;
 }
 
-.new-model-card {
-  justify-content: space-between;
-  border-radius: 10px;
-  padding: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin-bottom: 10px;
-}
-
-.new-wrapper {
-  color: white;
-  padding: 120px;
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  align-items: center;
-}
 
 .new-canvas>div {
   height: 80%;
@@ -495,6 +450,7 @@ ul>div>a:active {
   font-weight: 400;
   background: white !important;
 }
+
 .update-model-btn {
   position: absolute;
   left: 7%;
@@ -507,9 +463,8 @@ ul>div>a:active {
   background: white !important;
 }
 
-.portfolio-object {
-  display: flex;
-  flex-direction: column;
+#offcanvasNavbar-expand-md.offcanvas.offcanvas-bottom.show > .offcanvas-body {
+  font-size: 12px;
 }
 
 .capitalize {

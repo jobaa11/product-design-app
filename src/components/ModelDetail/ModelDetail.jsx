@@ -10,7 +10,6 @@ import Kicks from '../../components/Kicks/Kicks';
 import WomenShirt from '../../components/WomenShirt/WomenShirt';
 import WomenPants from '../../components/WomenPants/WomenPants';
 import Shirt from '../../components/Shirt/Shirt';
-import Shoe from '../../components/Shoe/Shoe';
 
 
 export default function ModelDetail({ models, user, setModels }) {
@@ -56,11 +55,8 @@ export default function ModelDetail({ models, user, setModels }) {
             <div className='product-canvas'>
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <Suspense fallback={<Loader />}>
-                  {model.product === '/shoe/shoe.gltf' ? (
-                    <Shoe castShadow mesh={model.mesh} />
-                  ) : model.product === '/hoodie/hoodie.gltf' ? (
-                    <Hoodie
-                      mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                  {model.product === '/hoodie/hoodie.gltf' ? (
+                    <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
                   ) : model.product === '/skirt/skirt.gltf' ? (
                     <Skirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
                   ) : model.product === '/kicks/kicks.gltf' ? (
@@ -72,7 +68,7 @@ export default function ModelDetail({ models, user, setModels }) {
                   ) : model.product === '/women-pants/women-pants.gltf' ? (
                     <WomenPants scale={4.5} mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
                   ) : (
-                    <Shoe />
+                    <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
                   )}
                   <Lights />
                   <OrbitControls />
