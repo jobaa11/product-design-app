@@ -107,8 +107,8 @@ Oja was inspired for the sole purpose of creativity and innovation. We use 3D-re
 
 - [x] Add rotation functionality
 
-- [ ] Add download models section
+- [ ] Add download models functionality
 
-- [ ] Add more models
+- [x] Add more models
 
 - [ ] ~~Add Sketchfab API Integration~~
