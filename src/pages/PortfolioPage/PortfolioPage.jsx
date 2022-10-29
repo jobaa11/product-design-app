@@ -29,9 +29,9 @@ export default function Portfolio({ models }) {
             <Lights />
             <OrbitControls enableDamping rotateSpeed={0.5} autoRotate autoRotateSpeed={0.8} />
             {models.map((model, idx) => (
-              <>
+              <group castShadow key={model._id} >
                 <PortfolioListCard name={model.name} model={model} key={model._id} t={idx / models.length * 2 * Math.PI} attach={`material-${idx}`} />
-              </>
+              </group>
             ))}
           </Suspense>
         </Canvas>

@@ -23,7 +23,7 @@ html,
 #root,
 body {
   height: 100% !important;
-  width: 100% !important;
+  width: 100%;
   margin: 0 auto !important;
   padding: 0;
   transition: 0.4s ease-in-out;
@@ -344,7 +344,7 @@ ul>div>a:active {
   display: block;
   justify-content: center;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 2px;
   padding-bottom: 150px;
   letter-spacing: 2px;
   font-weight: 300;
@@ -359,6 +359,9 @@ ul>div>a:active {
   align-items: center;
   letter-spacing: 2px;
   font-weight: 300;
+  height: 55%;
+  /* padding-top: 150px; */
+  margin-top: 100px;
 }
 
 .new-colors {
@@ -453,14 +456,28 @@ ul>div>a:active {
 
 .update-model-btn {
   position: absolute;
-  left: 7%;
-  top: 84.9%;
+  left: .5%;
+  top: 93%;
   padding: 10px 18px;
   border: none !important;
   color: black;
   border-radius: 10px;
   font-weight: 400;
   background: white !important;
+}
+
+
+@media screen and  (max-width: 576px) {
+  .update-model-btn {
+    position: absolute;
+    top: 89%;
+    padding: 10px 18px;
+    border: none !important;
+    color: black;
+    border-radius: 10px;
+    font-weight: 400;
+    background: white !important;
+  }
 }
 
 #offcanvasNavbar-expand-md.offcanvas.offcanvas-bottom.show > .offcanvas-body {

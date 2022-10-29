@@ -16,6 +16,11 @@
         {
             "mesh" : 0,
             "name" : "LACES",
+            "scale" : [
+                1,
+                1,
+                0.8622140884399414
+            ],
             "translation" : [
                 0.38619324564933777,
                 1.2968456745147705,
@@ -270,7 +275,7 @@
     "buffers" : [
         {
             "byteLength" : 2671424,
-            "uri" : "Kicks.bin"
+            "uri" : "kicks.bin"
         }
     ]
 }

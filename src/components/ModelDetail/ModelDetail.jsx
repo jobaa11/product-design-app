@@ -1,15 +1,15 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html, useProgress } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
 import Lights from '../../components/Lights/Lights';
-import Hoodie from '../../components/Hoodie/Hoodie';
-import Skirt from '../../components/Skirt/Skirt';
-import Kicks from '../../components/Kicks/Kicks';
-import WomenShirt from '../../components/WomenShirt/WomenShirt';
-import WomenPants from '../../components/WomenPants/WomenPants';
-import Shirt from '../../components/Shirt/Shirt';
+import { HoodieInstances, Hoodie } from '../../components/Hoodie/Hoodie';
+import { SkirtInstances, Skirt } from '../../components/Skirt/Skirt';
+import { KicksInstances, Kicks } from '../../components/Kicks/Kicks';
+import { WomenShirtInstances, WomenShirt } from '../../components/WomenShirt/WomenShirt';
+import { WomenPantsInstances, WomenPants } from '../../components/WomenPants/WomenPants';
+import { ShirtInstances, Shirt } from '../../components/Shirt/Shirt';
 
 
 export default function ModelDetail({ models, user, setModels }) {
@@ -56,19 +56,33 @@ export default function ModelDetail({ models, user, setModels }) {
               <Canvas shadows camaera={{ position: [-5, 2, 10], fov: 70 }}>
                 <Suspense fallback={<Loader />}>
                   {model.product === '/hoodie/hoodie.gltf' ? (
-                    <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <HoodieInstances>
+                      <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </HoodieInstances>
                   ) : model.product === '/skirt/skirt.gltf' ? (
-                    <Skirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <SkirtInstances>
+                      <Skirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </SkirtInstances>
                   ) : model.product === '/kicks/kicks.gltf' ? (
-                    <Kicks mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <KicksInstances>
+                      <Kicks mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </KicksInstances>
                   ) : model.product === '/women-shirt/women-shirt.gltf' ? (
-                    <WomenShirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <WomenShirtInstances>
+                      <WomenShirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </WomenShirtInstances>
                   ) : model.product === '/shirt/shirt.gltf' ? (
-                    <Shirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <ShirtInstances>
+                      <Shirt mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </ShirtInstances>
                   ) : model.product === '/women-pants/women-pants.gltf' ? (
-                    <WomenPants scale={4.5} mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <WomenPantsInstances>
+                      <WomenPants scale={4.5} mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </WomenPantsInstances>
                   ) : (
-                    <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    <HoodieInstances>
+                      <Hoodie mesh={model.mesh} stripes={model.stripes} sole={model.sole} />
+                    </HoodieInstances>
                   )}
                   <Lights />
                   <OrbitControls />
@@ -94,6 +108,9 @@ export default function ModelDetail({ models, user, setModels }) {
       </main>
       <button className='update-btn' onClick={() => handleDelete(id)}>
         Delete Design
+      </button>
+      <button className='update-btn' >
+        <Link to='/portfolio/' style={{ color: "white", textDecoration: "none" }} >Portfolio</Link>
       </button>
     </>
   );

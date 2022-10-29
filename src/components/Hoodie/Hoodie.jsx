@@ -1,25 +1,36 @@
-import { useGLTF } from '@react-three/drei'
-import { useRef, useState } from 'react';
+import { useGLTF, Merged } from '@react-three/drei'
+import { useRef, useState, createContext, useMemo, useContext } from 'react'
 import { useFrame } from '@react-three/fiber';
 
+const context = createContext()
 
+export function HoodieInstances({ children, ...props }) {
 
-export default function Hoodie(props) {
+    const { nodes, } = useGLTF('/models/hoodie/hoodie-transformed.glb')
+    const instances = useMemo(() => ({ Cube007: nodes['Cube007'], Cube007_1: nodes['Cube007_1'], Cube007_2: nodes['Cube007_2'] }), [nodes])
+    return (
+        <Merged castShadow receiveShadow meshes={instances} {...props}>
+            {(instances) => <context.Provider value={instances} children={children} />}
+        </Merged>
+    );
+}
+
+export function Hoodie(props) {
     const [spin, setSpin] = useState(true)
     const mesh = useRef(null);
     useFrame(() => (mesh.current.rotation.y += spin ? 0.004 : 0));
-    const { nodes, materials } = useGLTF('/models/hoodie/hoodie-transformed.glb')
+    const instances = useContext(context)
     return (
-        <group onClick={(e) => setSpin(!spin)} ref={mesh}  {...props} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]}>
-            <group rotation={[Math.PI / 2, 0, 0]}>
-                <group position={[0, 0.8, 0]} scale={.71}>
-                    <mesh castShadow geometry={nodes.Cube007.geometry} material={materials.Hoodie} material-color={props.mesh}/>
-                    <mesh castShadow geometry={nodes.Cube007_1.geometry} material={materials.cap} material-color={props.stripes}/>
-                    <mesh castShadow geometry={nodes.Cube007_2.geometry} material={materials.Strings} material-color={props.sole}/>
+        <group {...props} dispose={null} onClick={(e) => setSpin(!spin)} ref={mesh}>
+            <group rotation={[-Math.PI / 2, 0, 0]}>
+                <group rotation={[Math.PI / 2, 0, 0]}>
+                    <group position={[0, 0.8, 0]} scale={.71}>
+                        <instances.Cube007 color={props.mesh} />
+                        <instances.Cube007_1 color={props.stripes} />
+                        <instances.Cube007_2 color={props.sole} />
+                    </group>
                 </group>
             </group>
         </group>
-    </group>
     )
 }

@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as modelsApi from '../../utilities/models-api';
-import Hoodie from '../../components/Hoodie/Hoodie';
-import Skirt from '../../components/Skirt/Skirt';
-import Kicks from '../../components/Kicks/Kicks';
-import WomenShirt from '../../components/WomenShirt/WomenShirt';
-import WomenPants from '../../components/WomenPants/WomenPants';
-import Shirt from '../../components/Shirt/Shirt';
+import { HoodieInstances, Hoodie } from '../../components/Hoodie/Hoodie';
+import { SkirtInstances, Skirt } from '../../components/Skirt/Skirt';
+import { KicksInstances, Kicks } from '../../components/Kicks/Kicks';
+import { WomenShirtInstances, WomenShirt } from '../../components/WomenShirt/WomenShirt';
+import { WomenPantsInstances, WomenPants } from '../../components/WomenPants/WomenPants';
+import { ShirtInstances, Shirt } from '../../components/Shirt/Shirt';
 import Lights from '../../components/Lights/Lights';
 
 
@@ -54,24 +54,38 @@ export default function NewModelPage({ models, setModels }) {
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -3.002, 2]}
           >
-            <planeBufferGeometry attach='geometry' args={[100, 100]} />
+            <planeGeometry attach='geometry' args={[100, 100]} />
             <shadowMaterial attach='material' opacity={0.3} />
           </mesh>
         </group>
         {modelData.product === '/hoodie/hoodie.gltf' ? (
-          <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <HoodieInstances>
+            <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </HoodieInstances>
         ) : modelData.product === '/skirt/skirt.gltf' ? (
-          <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <SkirtInstances castShadow>
+            <Skirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </SkirtInstances>
         ) : modelData.product === '/kicks/kicks.gltf' ? (
-          <Kicks mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <KicksInstances>
+            <Kicks mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </KicksInstances>
         ) : modelData.product === '/women-shirt/women-shirt.gltf' ? (
-          <WomenShirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <WomenShirtInstances>
+            <WomenShirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </WomenShirtInstances>
         ) : modelData.product === '/shirt/shirt.gltf' ? (
-          <Shirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <ShirtInstances>
+            <Shirt mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </ShirtInstances>
         ) : modelData.product === '/women-pants/women-pants.gltf' ? (
-          <WomenPants scale={4.5} mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <WomenPantsInstances>
+            <WomenPants scale={4.5} mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </WomenPantsInstances>
         ) : (
-          <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          <HoodieInstances>
+            <Hoodie mesh={modelData.mesh} stripes={modelData.stripes} sole={modelData.sole} />
+          </HoodieInstances>
         )}
         <Lights />
         <OrbitControls />

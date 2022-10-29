@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as portfolioAPI from '../../utilities/portfolio-api';
-import Hoodie from '../../components/Hoodie/Hoodie';
-import Skirt from '../../components/Skirt/Skirt';
-import Kicks from '../../components/Kicks/Kicks';
-import WomenShirt from '../../components/WomenShirt/WomenShirt';
-import WomenPants from '../../components/WomenPants/WomenPants';
-import Shirt from '../../components/Shirt/Shirt';
+import { HoodieInstances, Hoodie } from '../../components/Hoodie/Hoodie';
+import { SkirtInstances, Skirt } from '../../components/Skirt/Skirt';
+import { KicksInstances, Kicks } from '../../components/Kicks/Kicks';
+import { WomenShirtInstances, WomenShirt } from '../../components/WomenShirt/WomenShirt';
+import { WomenPantsInstances, WomenPants } from '../../components/WomenPants/WomenPants';
+import { ShirtInstances, Shirt } from '../../components/Shirt/Shirt';
 import Lights from '../../components/Lights/Lights';
 
 export default function ModelUpdate(props) {
@@ -50,7 +50,7 @@ export default function ModelUpdate(props) {
       navigate('/portfolio');
     } catch (e) {
       let err = new Error(e);
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -63,25 +63,39 @@ export default function ModelUpdate(props) {
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -3.003, 2]}
           >
-            <planeBufferGeometry attach='geometry' args={[100, 100]} />
+            <planeGeometry attach='geometry' args={[100, 100]} />
             <shadowMaterial attach='material' opacity={0.3} />
           </mesh>
 
         </group>
         {modelUpdate.product === '/hoodie/hoodie.gltf' ? (
-          <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <HoodieInstances>
+            <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </HoodieInstances>
         ) : modelUpdate.product === '/skirt/skirt.gltf' ? (
-          <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <SkirtInstances>
+            <Skirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </SkirtInstances>
         ) : modelUpdate.product === '/kicks/kicks.gltf' ? (
-          <Kicks mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <KicksInstances>
+            <Kicks mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </KicksInstances>
         ) : modelUpdate.product === '/women-shirt/women-shirt.gltf' ? (
-          <WomenShirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <WomenShirtInstances>
+            <WomenShirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </WomenShirtInstances>
         ) : modelUpdate.product === '/shirt/shirt.gltf' ? (
-          <Shirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <ShirtInstances>
+            <Shirt mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </ShirtInstances>
         ) : modelUpdate.product === '/women-pants/women-pants.gltf' ? (
-          <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
+          <WomenPantsInstances>
+            <WomenPants scale={4.5} mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={ModelUpdate.sole} />
+          </WomenPantsInstances>
         ) : (
-          <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          <HoodieInstances>
+            <Hoodie mesh={modelUpdate.mesh} stripes={modelUpdate.stripes} sole={modelUpdate.sole} />
+          </HoodieInstances>
         )}
         <Lights />
         <OrbitControls />

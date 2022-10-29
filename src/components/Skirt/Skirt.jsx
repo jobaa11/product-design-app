@@ -1,19 +1,35 @@
-import { useRef, useState } from 'react'
-import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+import { useGLTF, Merged } from '@react-three/drei'
+import { useRef, useState, createContext, useMemo, useContext } from 'react'
+import { useFrame } from '@react-three/fiber';
 
-export default function Skirt(props) {
+const context = createContext();
+
+
+export function SkirtInstances({ children, ...props }) {
+
+  const { nodes } = useGLTF('/models/skirt/skirt-transformed.glb')
+
+  const instances = useMemo(() => ({ Cube021: nodes['Cube021'], Cube021_1: nodes['Cube021_1'], Cube021_2: nodes['Cube021_2'] }), [nodes])
+  return (
+
+    <Merged castShadow receiveShadow meshes={instances} {...props}>
+      {(instances) => <context.Provider value={instances} children={children} />}
+    </Merged>
+  );
+}
+
+export function Skirt(props) {
   const [spin, setSpin] = useState(true)
   const mesh = useRef(null);
   useFrame(() => (mesh.current.rotation.y += spin ? 0.004 : 0));
-  const { nodes, materials } = useGLTF('/models/skirt/skirt-transformed.glb')
+  const instances = useContext(context)
   return (
-    <group onClick={(e) => setSpin(!spin)} ref={mesh} {...props} dispose={null}>
+    <group {...props} dispose={null} onClick={(e) => setSpin(!spin)} ref={mesh}>
       <group position={[0, 0.4, 0]} scale={[1.24, 2.05, 1.24]}>
-        <mesh castShadow geometry={nodes.Cube021.geometry} material={materials.main} material-color={props.mesh} />
-        <mesh castShadow geometry={nodes.Cube021_1.geometry} material={materials.linens} material-color={props.stripes} />
-        <mesh castShadow geometry={nodes.Cube021_2.geometry} material={materials['top layer']} material-color={props.sole} />
+        <instances.Cube021 color={props.mesh} />
+        <instances.Cube021_1 color={props.stripes} />
+        <instances.Cube021_2 color={props.sole} />
       </group>
     </group>
-  )
+  );
 }

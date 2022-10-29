@@ -8,7 +8,7 @@ const Lights = () => {
       <directionalLight
         castShadow
         position={[0, 10, 0]}
-        intensity={1.5}
+        intensity={1.7}
         shadow-mapSize={[1024, 1024]}
         shadow-camera-far={50}
         shadow-camera-left={-10}
@@ -25,7 +25,7 @@ const Lights = () => {
           rotation={[-Math.PI / 2, 0, 0]}
           position={[0.002, -3, 0.002]}
         >
-          <planeBufferGeometry attach='geometry' args={[100, 100]} />
+          <planeGeometry attach='geometry' args={[100, 100]} />
           <shadowMaterial attach='material' opacity={0.3} />
         </mesh>
       </group>
